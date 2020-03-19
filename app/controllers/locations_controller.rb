@@ -18,7 +18,7 @@ class LocationsController < ApplicationController
     @location = Location.new(location_params)
 
     if @location.save
-      redirect_to [@restaurant, @location], notice: 'Location was successfully created.'
+      redirect_to restaurants_path, notice: 'Location was successfully created.'
     else
       render :new
     end
@@ -26,7 +26,7 @@ class LocationsController < ApplicationController
 
   def update
     if @location.update(location_params)
-      redirect_to [@restaurant, @location], notice: 'Location was successfully updated.'
+      redirect_to restaurants_path, notice: 'Location was successfully updated.'
     else
       render :edit
     end
@@ -34,7 +34,7 @@ class LocationsController < ApplicationController
 
   def destroy
     @location.destroy
-    redirect_to restaurant_locations_url(@restaurant), notice: 'Location was successfully destroyed.'
+    redirect_to restaurants_path, notice: 'Location was successfully destroyed.'
   end
 
   private

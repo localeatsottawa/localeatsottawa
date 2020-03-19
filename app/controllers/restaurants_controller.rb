@@ -2,6 +2,7 @@ class RestaurantsController < ApplicationController
   load_and_authorize_resource
 
   def index
+    @restaurants = @restaurants.alphabetical
   end
 
   def show
@@ -18,7 +19,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save
-      redirect_to @restaurant, notice: 'Restaurant was successfully created.'
+      redirect_to restaurants_path, notice: 'Restaurant was successfully created.'
     else
       render :new
     end
@@ -26,7 +27,7 @@ class RestaurantsController < ApplicationController
 
   def update
     if @restaurant.update(restaurant_params)
-      redirect_to @restaurant, notice: 'Restaurant was successfully updated.'
+      redirect_to restaurants_path, notice: 'Restaurant was successfully updated.'
     else
       render :edit
     end
@@ -34,7 +35,7 @@ class RestaurantsController < ApplicationController
 
   def destroy
     @restaurant.destroy
-    redirect_to restaurants_url, notice: 'Restaurant was successfully destroyed.'
+    redirect_to restaurants_path, notice: 'Restaurant was successfully destroyed.'
   end
 
   private

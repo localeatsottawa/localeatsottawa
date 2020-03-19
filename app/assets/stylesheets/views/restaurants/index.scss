@@ -1,0 +1,29 @@
+#restaurants-index {
+  .restaurant {
+    margin-bottom: 20px;
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      thead {
+        background: #eee;
+        td {
+          padding: 5px;
+        }
+      }
+  
+      tbody {
+        tr {
+          td {
+            padding: 5px;
+          }
+        }
+      }
+    }
+
+    .actions {
+      margin: 10px 0;
+    }
+  }
+}
