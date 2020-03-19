@@ -3,6 +3,11 @@ class RestaurantsController < ApplicationController
 
   def index
     @restaurants = @restaurants.alphabetical
+
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 
   def show

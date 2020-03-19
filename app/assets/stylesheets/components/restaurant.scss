@@ -1,0 +1,61 @@
+.component-restaurant {
+  border: 1px solid #eee;
+  margin: 10px 0;
+
+  .header {
+    background: #fff;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    h2 {
+      margin: 0;
+      font-weight: normal;
+    }
+  }
+
+  .details {
+    padding: 10px;
+    background: white;
+
+    table {
+      font-size: 0.9em;
+      width: 100%;
+      border-collapse: collapse;
+  
+      thead {
+        td {
+          padding: 5px;
+          font-weight: bold;
+  
+          &.check-col {
+            text-align: center;
+            width: 80px;
+          }
+        }
+      }
+  
+      tbody {
+        tr {
+          border: none;
+          border-bottom: 1px solid #ddd;
+  
+          td {
+            padding: 10px 5px;
+  
+            &.check-col {
+              text-align: center;
+              width: 80px;
+            }
+          }
+        }
+      }
+    }
+  
+    .actions {
+      margin: 5px 0;
+    }
+  }
+
+}

@@ -1,3 +1,4 @@
+<%= javascript_pack_tag 'restaurants' %>
 <div id="restaurants-index">
 
   <h1>Welcome to Local Eats Ottawa!</h1>
@@ -5,54 +6,7 @@
   <div class='new-restaurant-container'>
     <%= link_to 'New Restaurant', new_restaurant_path, class: 'btn btn-primary' %>
   </div>
-  
-  <% @restaurants.each do |restaurant| %>
-    <div class='restaurant'>
-      <h2><%= restaurant.name %></h2>
 
-      <table>
-        <thead>
-          <td>Location</td>
-          <td class='check-col'>Pickup</td>
-          <td class='check-col'>Delivery</td>
-          <td class='check-col'>Skip the Dishes</td>
-          <td class='check-col'>Uber Eats</td>
-          <td class='check-col'>Foodora</td>
-          <td class='check-col'>DoorDash</td>
-          <% if admin? %>
-            <td></td>
-            <td></td>
-          <% end %>
-        </thead>
-        <tbody>
-          <% restaurant.locations.each do |location| %>
-            <tr>
-              <td><%= "#{location.name} (#{location.address})" %></td>
-              <td class='check-col'><%= check_icon location.pickup %></td>
-              <td class='check-col'><%= check_icon location.delivery %></td>
-              <td class='check-col'><%= check_icon location.skip_the_dishes %></td>
-              <td class='check-col'><%= check_icon location.uber_eats %></td>
-              <td class='check-col'><%= check_icon location.foodora %></td>
-              <td class='check-col'><%= check_icon location.door_dash %> </td>
-              <% if admin? %>
-                <td><%= link_to 'Edit', edit_restaurant_location_path(restaurant, location) %></td>
-                <td><%= link_to 'Destroy', [restaurant, location], method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-      
-      <div class='actions'>
-        <%= link_to "New #{restaurant.name} location", new_restaurant_location_path(restaurant) %>
-        <% if admin? %>
-          | <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-          | <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </div>
-    </div>
-  <% end %>
-
-
+  <div id='restaurants-mount-point'></div>
   
 </div>

@@ -5,45 +5,6 @@
 
   .new-restaurant-container {
     text-align: center;
-  }
-  .restaurant {
-    margin: 20px 0 40px 0;
-
-    table {
-      font-size: 0.9em;
-      width: 100%;
-      border-collapse: collapse;
-  
-      thead {
-        background: #eee;
-        td {
-          padding: 5px;
-
-          &.check-col {
-            text-align: center;
-            width: 80px;
-          }
-        }
-      }
-  
-      tbody {
-        tr {
-          border-bottom: 1px solid #ddd;
-
-          td {
-            padding: 10px 5px;
-
-            &.check-col {
-              text-align: center;
-              width: 80px;
-            }
-          }
-        }
-      }
-    }
-
-    .actions {
-      margin: 5px 0;
-    }
+    margin: 10px 0;
   }
 }
