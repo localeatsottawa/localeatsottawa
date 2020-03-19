@@ -17,13 +17,25 @@
         background: #eee;
         td {
           padding: 5px;
+
+          &.check-col {
+            text-align: center;
+            width: 80px;
+          }
         }
       }
   
       tbody {
         tr {
+          border-bottom: 1px solid #ddd;
+
           td {
-            padding: 5px;
+            padding: 10px 5px;
+
+            &.check-col {
+              text-align: center;
+              width: 80px;
+            }
           }
         }
       }

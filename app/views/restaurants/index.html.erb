@@ -13,12 +13,12 @@
       <table>
         <thead>
           <td>Location</td>
-          <td>Pickup</td>
-          <td>Delivery</td>
-          <td>Skip the Dishes</td>
-          <td>Uber Eats</td>
-          <td>Foodora</td>
-          <td>DoorDash</td>
+          <td class='check-col'>Pickup</td>
+          <td class='check-col'>Delivery</td>
+          <td class='check-col'>Skip the Dishes</td>
+          <td class='check-col'>Uber Eats</td>
+          <td class='check-col'>Foodora</td>
+          <td class='check-col'>DoorDash</td>
           <% if admin? %>
             <td></td>
             <td></td>
@@ -28,12 +28,12 @@
           <% restaurant.locations.each do |location| %>
             <tr>
               <td><%= "#{location.name} (#{location.address})" %></td>
-              <td><%= check_icon location.pickup %></td>
-              <td><%= check_icon location.delivery %></td>
-              <td><%= check_icon location.skip_the_dishes %></td>
-              <td><%= check_icon location.uber_eats %></td>
-              <td><%= check_icon location.foodora %></td>
-              <td><%= check_icon location.door_dash %> </td>
+              <td class='check-col'><%= check_icon location.pickup %></td>
+              <td class='check-col'><%= check_icon location.delivery %></td>
+              <td class='check-col'><%= check_icon location.skip_the_dishes %></td>
+              <td class='check-col'><%= check_icon location.uber_eats %></td>
+              <td class='check-col'><%= check_icon location.foodora %></td>
+              <td class='check-col'><%= check_icon location.door_dash %> </td>
               <% if admin? %>
                 <td><%= link_to 'Edit', edit_restaurant_location_path(restaurant, location) %></td>
                 <td><%= link_to 'Destroy', [restaurant, location], method: :delete, data: { confirm: 'Are you sure?' } %></td>
