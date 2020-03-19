@@ -1,0 +1,44 @@
+<h1><%= @restaurant.name %> <%= @location.name %></h1>
+
+<p>
+  <strong>Address:</strong>
+  <%= @location.address %>
+</p>
+
+<p>
+  <strong>Pickup:</strong>
+  <%= @location.pickup %>
+</p>
+
+<p>
+  <strong>Delivery:</strong>
+  <%= @location.delivery %>
+</p>
+
+<p>
+  <strong>Skip the dishes:</strong>
+  <%= @location.skip_the_dishes %>
+</p>
+
+<p>
+  <strong>Uber eats:</strong>
+  <%= @location.uber_eats %>
+</p>
+
+<p>
+  <strong>Foodora:</strong>
+  <%= @location.foodora %>
+</p>
+
+<p>
+  <strong>Door dash:</strong>
+  <%= @location.door_dash %>
+</p>
+
+<p>
+  <strong>Restaurant:</strong>
+  <%= @location.restaurant_id %>
+</p>
+
+<%= link_to 'Edit', edit_restaurant_location_path(@restaurant, @location) %> |
+<%= link_to 'Back', restaurant_locations_path(@restaurant) %>

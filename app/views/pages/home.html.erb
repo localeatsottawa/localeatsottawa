@@ -1,0 +1,32 @@
+<div id="pages-home">
+  <% @restaurants.each do |restaurant| %>
+    <h2><%= restaurant.name %></h2>
+    <table>
+      <thead>
+        <td>Location Name</td>
+        <td>Address</td>
+        <td>Pickup</td>
+        <td>Delivery</td>
+        <td>Uber Eats</td>
+        <td>Skip the Dishes</td>
+        <td>Foodora</td>
+        <td>DoorDash</td>
+      </thead>
+      <tbody>
+        <% restaurant.locations.each do |location| %>
+          <td><%= location.name %></td>
+          <td><%= location.address %></td>
+          <td><%= location.pickup %></td>
+          <td><%= location.delivery %></td>
+          <td><%= location.skip_the_dishes %></td>
+          <td><%= location.uber_eats %></td>
+          <td><%= location.foodora %></td>
+          <td><%= location.door_dash %></td>
+        <% end %>
+      </tbody>
+    </table>
+      
+  <% end %>
+
+  <%= link_to 'New Restaurant', new_restaurant_path %>
+</div>

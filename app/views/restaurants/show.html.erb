@@ -1,8 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @restaurant.name %></h1>
 
 <p>
-  <strong>Name:</strong>
-  <%= @restaurant.name %>
+  <h2>Locations</h2>
+
+  <ul>
+    <% @restaurant.locations.each do |location| %>
+      <li><%= link_to "#{location.name} (#{location.address})", [@restaurant, location] %></li>
+    <% end %>
+  </ul>
+  <%= link_to 'New location', new_restaurant_location_path(@restaurant) %>
 </p>
 
 <%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |

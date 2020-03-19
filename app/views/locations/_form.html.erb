@@ -1,0 +1,62 @@
+<%= form_with(model: [@restaurant, location], local: true) do |form| %>
+  <% if location.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(location.errors.count, "error") %> prohibited this location from being saved:</h2>
+
+      <ul>
+        <% location.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_field :address %>
+  </div>
+
+  <div class="field">
+    <%= form.label :pickup %>
+    <%= form.check_box :pickup %>
+  </div>
+
+  <div class="field">
+    <%= form.label :delivery %>
+    <%= form.check_box :delivery %>
+  </div>
+
+  <div class="field">
+    <%= form.label :skip_the_dishes %>
+    <%= form.check_box :skip_the_dishes %>
+  </div>
+
+  <div class="field">
+    <%= form.label :uber_eats %>
+    <%= form.check_box :uber_eats %>
+  </div>
+
+  <div class="field">
+    <%= form.label :foodora %>
+    <%= form.check_box :foodora %>
+  </div>
+
+  <div class="field">
+    <%= form.label :door_dash %>
+    <%= form.check_box :door_dash %>
+  </div>
+
+  <div class="field">
+    <%= form.label :restaurant_id %>
+    <%= form.text_field :restaurant_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

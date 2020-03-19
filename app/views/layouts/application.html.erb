@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Localeatsottawa</title>
+    <title>Local Eats Ottawa</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'application', media: 'all' %>
+    <%= javascript_pack_tag 'application' %>
   </head>
 
   <body>
-    <%= yield %>
+    <div id="header">
+      <div class="container">
+        <%= link_to 'Local Eats Ottawa', root_path %>
+      </div>
+    </div>
+    <div id="content">
+      <div class="container">
+        <div id="notice"><%= notice %></div>
+        <%= yield %>
+      </div>
+    </div>
+    <div id="footer">
+      <div class="container">
+
+      </div>
+    </div>
   </body>
 </html>
