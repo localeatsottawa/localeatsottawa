@@ -22,33 +22,43 @@
   </div>
 
   <div class="field">
-    <%= form.label :pickup %>
     <%= form.check_box :pickup %>
+    <%= form.label :pickup, class: 'checkbox-label' %>
   </div>
 
   <div class="field">
-    <%= form.label :delivery %>
     <%= form.check_box :delivery %>
+    <%= form.label :delivery, class: 'checkbox-label' %>
   </div>
 
   <div class="field">
-    <%= form.label :skip_the_dishes %>
     <%= form.check_box :skip_the_dishes %>
+    <%= form.label :skip_the_dishes, class: 'checkbox-label' %>
   </div>
 
   <div class="field">
-    <%= form.label :uber_eats %>
     <%= form.check_box :uber_eats %>
+    <%= form.label :uber_eats, class: 'checkbox-label' %>
   </div>
 
   <div class="field">
-    <%= form.label :foodora %>
     <%= form.check_box :foodora %>
+    <%= form.label :foodora, class: 'checkbox-label' %>
   </div>
 
   <div class="field">
-    <%= form.label :door_dash %>
     <%= form.check_box :door_dash %>
+    <%= form.label :door_dash, class: 'checkbox-label' %>
+  </div>
+
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
   </div>
   
   <div class="actions">

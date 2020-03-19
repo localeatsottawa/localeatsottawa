@@ -1,7 +1,23 @@
 <div id="restaurants-index">
+
+  <h1>Welcome to Local Eats Ottawa!</h1>
+
+  <div class='new-restaurant-container'>
+    <%= link_to 'New Restaurant', new_restaurant_path, class: 'btn btn-primary' %>
+  </div>
+  
   <% @restaurants.each do |restaurant| %>
     <div class='restaurant'>
       <h2><%= restaurant.name %></h2>
+
+      <div class='actions'>
+        <%= link_to "New #{restaurant.name} location", new_restaurant_location_path(restaurant) %>
+        <% if admin? %>
+          | <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+          | <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
+
       <table>
         <thead>
           <td>Location</td>
@@ -34,16 +50,10 @@
           <% end %>
         </tbody>
       </table>
-      <div class='actions'>
-        <%= link_to "New #{restaurant.name} location", new_restaurant_location_path(restaurant) %>
-        <% if admin? %>
-          | <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
-          | <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-      </div>
+      
     </div>
   <% end %>
 
 
-  <%= link_to 'New Restaurant', new_restaurant_path %>
+  
 </div>

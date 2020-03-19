@@ -1,6 +1,13 @@
 #restaurants-index {
+  h1 {
+    text-align: center;
+  }
+
+  .new-restaurant-container {
+    text-align: center;
+  }
   .restaurant {
-    margin-bottom: 20px;
+    margin: 20px 0;
 
     table {
       width: 100%;

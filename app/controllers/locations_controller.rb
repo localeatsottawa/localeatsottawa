@@ -37,6 +37,15 @@ class LocationsController < ApplicationController
 
   private
     def location_params
-      params.require(:location).permit(:name, :address, :pickup, :delivery, :skip_the_dishes, :uber_eats, :foodora, :door_dash)
+      params.require(:location).permit(:name,
+                                       :address,
+                                       :pickup,
+                                       :delivery,
+                                       :skip_the_dishes,
+                                       :uber_eats,
+                                       :foodora,
+                                       :door_dash,
+                                       :phone,
+                                       :website)
     end
 end

@@ -16,7 +16,17 @@
     <%= form.text_field :name %>
   </div>
 
+  <div class="field">
+    <%= form.label :website %>
+    <%= form.text_field :website %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Submit', class: 'btn btn-primary' %>
   </div>
 <% end %>

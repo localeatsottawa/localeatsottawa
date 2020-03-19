@@ -11,12 +11,25 @@ body {
 }
 
 #header {
-  background: #ddd;
-  color: black;
+  background: $secondary-color;
+  color: white;
   padding: 10px 0;
 
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;;
+  }
+
+  .logo {
+    height: 20px;
+  }
+
+  .session-info {
+  }
+
   a {
-    color: black;
+    color: white;
     text-decoration: none;
   }
 }

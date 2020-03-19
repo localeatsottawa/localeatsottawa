@@ -14,13 +14,18 @@
   <body>
     <div id="header">
       <div class="container">
-        <%= link_to 'Local Eats Ottawa', root_path %>
-        <% if user_signed_in? %>
-          (
-            signed in as <%= current_user.email %>
-            <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
-          )
-        <% end %>
+        <%= link_to image_tag('logo_white.png', class: 'logo'), root_path %>
+
+        <div class='session-info'>
+          <% if user_signed_in? %>
+            (
+              signed in as <%= current_user.email %>
+              <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+            )
+          <% else %>
+            <%= link_to 'Sign in', new_user_session_path %>
+          <% end %>
+        </div>
       </div>
     </div>
     <div id="content">

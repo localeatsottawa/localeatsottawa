@@ -1,0 +1,25 @@
+form {
+
+  .field {
+    margin: 15px 0;
+  }
+
+  label {
+    display: block;
+    width: 100%;
+    margin-bottom: 5px;
+
+    &.checkbox-label {
+      display: inline;
+      margin-bottom: 0;
+    }
+  }
+  input[type="text"], 
+  input[type="email"], 
+  input[type="password"] {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+  }
+
+}
