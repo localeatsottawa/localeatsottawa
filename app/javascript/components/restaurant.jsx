@@ -53,7 +53,7 @@ class Restaurant extends React.Component {
             </table>
 
             <div className='actions'>
-              <a href={`/restaurants/${restaurant.id}/locations/new`}>New {restaurant.name} location</a>
+              <a href={`/restaurants/${restaurant.id}/locations/new`}>Submit new {restaurant.name} location</a>
               {
                 window.gon.admin &&
                 <React.Fragment>
