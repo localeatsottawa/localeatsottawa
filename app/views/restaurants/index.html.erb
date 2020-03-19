@@ -12,28 +12,36 @@
           <td>Skip the Dishes</td>
           <td>Foodora</td>
           <td>DoorDash</td>
-          <td></td>
-          <td></td>
+          <% if admin? %>
+            <td></td>
+            <td></td>
+          <% end %>
         </thead>
         <tbody>
           <% restaurant.locations.each do |location| %>
-            <td><%= location.name %></td>
-            <td><%= location.address %></td>
-            <td><%= location.pickup %></td>
-            <td><%= location.delivery %></td>
-            <td><%= location.skip_the_dishes %></td>
-            <td><%= location.uber_eats %></td>
-            <td><%= location.foodora %></td>
-            <td><%= location.door_dash %></td>
-            <td><%= link_to 'Edit', edit_restaurant_location_path(restaurant, location) %></td>
-            <td><%= link_to 'Destroy', [restaurant, location], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <tr>
+              <td><%= location.name %></td>
+              <td><%= location.address %></td>
+              <td><%= location.pickup %></td>
+              <td><%= location.delivery %></td>
+              <td><%= location.skip_the_dishes %></td>
+              <td><%= location.uber_eats %></td>
+              <td><%= location.foodora %></td>
+              <td><%= location.door_dash %></td>
+              <% if admin? %>
+                <td><%= link_to 'Edit', edit_restaurant_location_path(restaurant, location) %></td>
+                <td><%= link_to 'Destroy', [restaurant, location], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% end %>
+            </tr>
           <% end %>
         </tbody>
       </table>
       <div class='actions'>
-        <%= link_to "New #{restaurant.name} location", new_restaurant_location_path(restaurant) %> |
-        <%= link_to 'Edit', edit_restaurant_path(restaurant) %> |
-        <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to "New #{restaurant.name} location", new_restaurant_location_path(restaurant) %>
+        <% if admin? %>
+          | <%= link_to 'Edit', edit_restaurant_path(restaurant) %>
+          | <%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <% end %>
       </div>
     </div>
   <% end %>

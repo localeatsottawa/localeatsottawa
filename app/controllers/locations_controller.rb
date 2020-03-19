@@ -15,8 +15,6 @@ class LocationsController < ApplicationController
   end
 
   def create
-    @location = Location.new(location_params)
-
     if @location.save
       redirect_to restaurants_path, notice: 'Location was successfully created.'
     else
@@ -39,6 +37,6 @@ class LocationsController < ApplicationController
 
   private
     def location_params
-      params.require(:location).permit(:name, :address, :pickup, :delivery, :skip_the_dishes, :uber_eats, :foodora, :door_dash, :restaurant_id)
+      params.require(:location).permit(:name, :address, :pickup, :delivery, :skip_the_dishes, :uber_eats, :foodora, :door_dash)
     end
 end

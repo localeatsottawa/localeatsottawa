@@ -11,7 +11,6 @@
       <th>Uber eats</th>
       <th>Foodora</th>
       <th>Door dash</th>
-      <th>Restaurant</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -27,7 +26,6 @@
         <td><%= location.uber_eats %></td>
         <td><%= location.foodora %></td>
         <td><%= location.door_dash %></td>
-        <td><%= location.restaurant_id %></td>
         <td><%= link_to 'Show', [@restaurant, location] %></td>
         <td><%= link_to 'Edit', edit_restaurant_location_path(@restaurant, location) %></td>
         <td><%= link_to 'Destroy', [@restaurant, location], method: :delete, data: { confirm: 'Are you sure?' } %></td>

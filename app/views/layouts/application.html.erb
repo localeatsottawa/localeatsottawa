@@ -13,6 +13,9 @@
     <div id="header">
       <div class="container">
         <%= link_to 'Local Eats Ottawa', root_path %>
+        <% if user_signed_in? %>
+          (signed in as <%= current_user.email %>)
+        <% end %>
       </div>
     </div>
     <div id="content">
