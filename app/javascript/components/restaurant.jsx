@@ -3,7 +3,7 @@ import Location from './location';
 
 class Restaurant extends React.Component {
   state = {
-    collapsed: true
+    collapsed: false
   }
 
   handleHeaderClick = (e) => {
