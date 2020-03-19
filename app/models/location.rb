@@ -1,5 +1,5 @@
 class Location < ApplicationRecord
   belongs_to :restaurant
 
-  validates :address, uniqueness: true
+  validates :address, presence: true, uniqueness: true
 end
