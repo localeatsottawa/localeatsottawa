@@ -7,6 +7,8 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+
+    <script src="https://kit.fontawesome.com/c593d4c0e6.js" crossorigin="anonymous"></script>
   </head>
 
   <body>
@@ -14,7 +16,10 @@
       <div class="container">
         <%= link_to 'Local Eats Ottawa', root_path %>
         <% if user_signed_in? %>
-          (signed in as <%= current_user.email %>)
+          (
+            signed in as <%= current_user.email %>
+            <%= link_to 'sign out', destroy_user_session_path, method: :delete %>
+          )
         <% end %>
       </div>
     </div>
