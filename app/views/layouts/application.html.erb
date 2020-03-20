@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-161459282-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-161459282-1');
+    </script>
+    
     <title>CHYOW DOWN!</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +22,9 @@
 
     <script src="https://kit.fontawesome.com/c593d4c0e6.js" crossorigin="anonymous"></script>
     <%= include_gon %>
+
+   
+
   </head>
 
   <body>
