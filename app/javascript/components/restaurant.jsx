@@ -24,34 +24,36 @@ class Restaurant extends React.Component {
         {
           !collapsed &&
           <div className="details">
-            <table>
-              <thead>
-                <tr>
-                  <td>Location</td>
-                  <td className='check-col'>Pickup</td>
-                  <td className='check-col'>Delivery</td>
-                  <td className='check-col'>Skip the Dishes</td>
-                  <td className='check-col'>Uber Eats</td>
-                  <td className='check-col'>Foodora</td>
-                  <td className='check-col'>DoorDash</td>
-                  { 
-                    window.gon.admin &&
-                    <React.Fragment>
-                      <td></td>
-                      <td></td>
-                    </React.Fragment>
+            {
+              restaurant.locations.length > 0 &&
+              <table>
+                <thead>
+                  <tr>
+                    <td>Location</td>
+                    <td className='check-col'>Pickup</td>
+                    <td className='check-col'>Delivery</td>
+                    <td className='check-col'>Skip the Dishes</td>
+                    <td className='check-col'>Uber Eats</td>
+                    <td className='check-col'>Foodora</td>
+                    <td className='check-col'>DoorDash</td>
+                    { 
+                      window.gon.admin &&
+                      <React.Fragment>
+                        <td></td>
+                        <td></td>
+                      </React.Fragment>
+                    }
+                  </tr>
+                </thead>
+                <tbody>    
+                  {
+                    restaurant.locations.map((location) => {
+                      return <Location key={location.id} location={location} />
+                    })
                   }
-                </tr>
-              </thead>
-              <tbody>    
-                {
-                  restaurant.locations.map((location) => {
-                    return <Location key={location.id} location={location} />
-                  })
-                }
-              </tbody>
-            </table>
-
+                </tbody>
+              </table>
+            }
             <div className='actions'>
               <a href={`/restaurants/${restaurant.id}/locations/new`}>Add new location</a>
               {
