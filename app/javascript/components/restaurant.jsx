@@ -53,7 +53,7 @@ class Restaurant extends React.Component {
             </table>
 
             <div className='actions'>
-              <a href={`/restaurants/${restaurant.id}/locations/new`}>Submit new {restaurant.name} location</a>
+              <a href={`/restaurants/${restaurant.id}/locations/new`}>Add new location</a>
               {
                 window.gon.admin &&
                 <React.Fragment>
@@ -67,6 +67,12 @@ class Restaurant extends React.Component {
                     Destroy
                   </a>
                 </React.Fragment>
+              }
+            </div>
+            <div className='actions'>
+              {
+              restaurant.website &&
+                <a href={`${restaurant.website}`} target="_blank">Go to website</a>
               }
             </div>
           </div>
