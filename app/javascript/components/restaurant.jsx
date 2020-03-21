@@ -69,7 +69,7 @@ class Restaurant extends React.Component {
                 </React.Fragment>
               }
             </div>
-            <div className='actions'>
+            <div className='website-link'>
               {
               restaurant.website &&
                 <a href={`${restaurant.website}`} target="_blank">Go to website</a>
