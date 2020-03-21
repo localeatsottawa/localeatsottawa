@@ -9,3 +9,16 @@
 @import 'components/*';
 
 @import 'views/restaurants/*';
+
+body {
+  background-color: white;
+}
+
+/* Banner */
+.indexbanner {
+  padding: 1px;
+  text-align: center;
+  background: $primary-color-light-2;
+  font-weight: bold;
+  font-size: 13px;
+}
