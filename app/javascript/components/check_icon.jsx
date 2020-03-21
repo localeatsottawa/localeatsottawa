@@ -6,6 +6,6 @@ export default (props) => {
   if(value) {
     return <i className='fas fa-check-circle success' />;
   } else {
-    return <i className='fas fa-times-circle error' />;
+    return <i className='fas fa-times-circle info' />;
   }
 }
