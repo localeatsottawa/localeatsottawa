@@ -1,0 +1,21 @@
+<h1><%= @ticket.title %></h1>
+<p>
+  Submitted by: <%= @ticket.submitted_by_name %> (<%= @ticket.submitted_by_email %>)
+</p>
+
+<p>
+  <%= @ticket.body %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @ticket.status %>
+</p>
+
+<p>
+  <strong>Assigned to:</strong>
+  <%= @ticket.user.try(:email) || "(No one)" %>
+</p>
+
+<%= link_to 'Edit', edit_ticket_path(@ticket) %> |
+<%= link_to 'Back', tickets_path %>

@@ -1,0 +1,35 @@
+<div id="tickets-index">
+  <h1>Tickets</h1>
+
+  <div class="actions">
+    <%= link_to 'New Ticket', new_ticket_path, class: 'btn btn-primary' %>
+  </div>
+
+  <table class='resource-table'>
+    <thead>
+      <tr>
+        <th>Submitted</th>
+        <th>by</th>
+        <th>Body</th>
+        <th>Status</th>
+        <th>Assigned to</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @tickets.each do |ticket| %>
+        <tr>
+          <td><%= ticket.created_at %></td>
+          <td><%= ticket.submitted_by_name %></td>
+          <td><%= ticket.title %></td>
+          <td><%= ticket.status %></td>
+          <td><%= ticket.user.try(:email) %></td>
+          <td><%= link_to 'Show', ticket %></td>
+          <td><%= link_to 'Edit', edit_ticket_path(ticket) %></td>
+          <td><%= link_to 'Destroy', ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
