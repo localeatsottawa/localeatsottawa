@@ -11,6 +11,14 @@ class Restaurant extends React.Component {
 
     this.setState({ collapsed: !this.state.collapsed });
   }
+  
+  ensureUrlHasProtocol = (url) => {
+    const hasProtocolPattern = RegExp(/^https?:\/\//);
+    if (!hasProtocolPattern.test(url.toLowerCase())) {
+      return "http://" + url;
+    }
+    return url;
+  }
 
   render() {
     const { restaurant } = this.props;
@@ -74,7 +82,7 @@ class Restaurant extends React.Component {
             <div className='website-link'>
               {
               restaurant.website &&
-                <a href={`${restaurant.website}`} target="_blank">Go to website</a>
+                <a href={`${ensureUrlHasProtocol(restaurant.website)}`} target="_blank">Go to website</a>
               }
             </div>
           </div>
