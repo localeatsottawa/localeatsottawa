@@ -8,6 +8,7 @@ import Restaurant from '../components/restaurant';
 
 class Restaurants extends React.Component {
   state = {
+    loadingRestaurants: true,
     restaurants: []
   }
 
@@ -17,17 +18,28 @@ class Restaurants extends React.Component {
 
   loadRestaurants = () => {
     $.getJSON('/restaurants', (restaurants) => {
-      this.setState({restaurants});
+      this.setState({restaurants, loadingRestaurants: false});
     });
   }
 
   render() {
-    const { restaurants } = this.state;
+    const { restaurants, loadingRestaurants } = this.state;
     return (
       <div className='component-restaurants'>
         <div className='restaurants'>
           {
-            restaurants.map((restaurant) => {
+            loadingRestaurants &&
+            <React.Fragment>
+              <div className='loading-restaurant'></div>
+              <div className='loading-restaurant'></div>
+              <div className='loading-restaurant'></div>
+              <div className='loading-restaurant'></div>
+              <div className='loading-restaurant'></div>
+              <div className='loading-restaurant'></div>
+            </React.Fragment>
+          }
+          {
+            !loadingRestaurants && restaurants.map((restaurant) => {
               return (<Restaurant key={restaurant.id} restaurant={restaurant} />)
             })
           }

@@ -1,3 +1,28 @@
 .component-restaurants {
-  
+  .component-restaurant {
+    margin: 10px 0;
+  }
+
+  .loading-restaurant {
+    margin: 10px 0;
+    height: 150px;
+    background: $light-gray;
+
+    animation-name: colorChange;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    animation-play-state: running;
+
+    @keyframes colorChange {
+      0% {
+        background-color: $light-gray;
+      }
+
+      100% {
+        background-color: $pale-gray;
+      }
+    }
+  }
 }
