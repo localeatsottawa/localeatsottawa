@@ -82,7 +82,7 @@ class Restaurant extends React.Component {
             <div className='website-link'>
               {
               restaurant.website &&
-                <a href={`${ensureUrlHasProtocol(restaurant.website)}`} target="_blank">Go to website</a>
+                <a href={`${this.ensureUrlHasProtocol(restaurant.website)}`} target="_blank">Go to website</a>
               }
             </div>
           </div>
