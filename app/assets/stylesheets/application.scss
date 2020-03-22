@@ -3,22 +3,11 @@
 @import 'base/forms';
 @import 'base/links';
 @import 'base/buttons';
+@import 'base/tables';
 @import 'base/typography';
 @import 'common/*';
 
 @import 'components/*';
 
 @import 'views/restaurants/*';
-
-body {
-  background-color: white;
-}
-
-/* Banner */
-.index-banner {
-  padding: 1px;
-  text-align: center;
-  background: $primary-color-light-2;
-  font-weight: bold;
-  font-size: 13px;
-}
+@import 'views/tickets/*';
