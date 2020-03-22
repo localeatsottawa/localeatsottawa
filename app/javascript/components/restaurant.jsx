@@ -48,7 +48,7 @@ class Restaurant extends React.Component {
                 <tbody>    
                   {
                     restaurant.locations.map((location) => {
-                      return <Location key={location.id} location={location} />
+                      return <Location key={location.id} restaurantId={restaurant.id} location={location} />
                     })
                   }
                 </tbody>
