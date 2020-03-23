@@ -1,0 +1,7 @@
+<% if notice %>
+  <div id="flash-mount-point" data-message='<%= notice %>' data-flash-type='notice'></div>
+<% elsif flash[:success] %>
+  <div id="flash-mount-point" data-message='<%= flash[:success] %>' data-flash-type='success'></div>
+<% elsif alert %>
+  <div id="flash-mount-point" data-message='<%= alert %>' data-flash-type='alert'></div>
+<% end %>

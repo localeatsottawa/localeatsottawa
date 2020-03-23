@@ -6,7 +6,13 @@ Rails.application.routes.draw do
   resources :restaurants do
     resources :locations
   end
-
+  
+  resources :tickets do
+    collection do
+      get :thank_you
+    end
+  end
+  
   namespace :api do
     namespace :v1 do
       resources :restaurants, only: [:index]

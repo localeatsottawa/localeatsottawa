@@ -3,7 +3,7 @@ import CheckIcon from './check_icon';
 
 class Location extends React.Component {
   render() {
-    const { location } = this.props;
+    const { restaurantId, location } = this.props;
     return (
       <tr className='component-restaurant'>
         <td>{`${location.name} (${location.address})`}</td>
@@ -16,8 +16,13 @@ class Location extends React.Component {
         {
           window.gon.admin &&
           <React.Fragment>
-            <td><a>Edit</a></td>
-            <td><a>Destroy</a></td>
+            <td><a href={`/restaurants/${restaurantId}/locations/${location.id}/edit`}>Edit</a></td>
+            <td>
+              <a href={`/restaurants/${restaurantId}/locations/${location.id}`} 
+                 data-method='delete'
+                 data-confirm={`Are you sure you want to delete '${location.name}'?`}
+              >Destroy</a>
+            </td>
           </React.Fragment>
         }
       </tr>

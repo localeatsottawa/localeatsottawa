@@ -13,6 +13,7 @@ class Ability
     else
       can [:read, :new, :create], Restaurant
       can [:read, :new, :create], Location
+      can [:new, :create, :thank_you], Ticket
     end
 
   end
