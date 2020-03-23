@@ -17,6 +17,7 @@
 
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application' %>
+    <%= javascript_pack_tag 'flash' %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -54,9 +55,10 @@
     </div>
     <div id="content">
       <div class="container">
-        <div id="notice"><%= notice %></div>
         <%= yield %>
       </div>
+
+      <%= render 'layouts/flash' %>
     </div>
     <div id="footer">
       <div class="container">

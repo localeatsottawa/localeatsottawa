@@ -1,0 +1,44 @@
+.component-flash {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: $pale-info;
+  color: $dark-info;
+  padding: 10px 20px;
+  border-radius: $border-radius;
+  box-shadow: 2px 2px 2px $dark-gray;
+  opacity: 1;
+  transition: 1000ms;
+  
+  .message {
+    margin-right: 15px;
+  }
+
+  a {
+    color: $dark-info;
+  }
+  
+  &.success {
+    background: $pale-success;
+    color: $dark-success;
+
+    a {
+      color: $dark-success;
+    }
+  }
+
+  &.alert {
+    background: $pale-error;
+    color: $dark-error;
+
+    a {
+      color: $dark-error;
+    }
+  }
+
+  &.invisible {
+    opacity: 0;
+  }
+
+
+}
