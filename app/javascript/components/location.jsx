@@ -16,9 +16,9 @@ class Location extends React.Component {
         {
           window.gon.admin &&
           <React.Fragment>
-            <td><a href={`/restaurants/${restaurantId}/edit`}>Edit</a></td>
+            <td><a href={`/restaurants/${restaurantId}/locations/${location.id}/edit`}>Edit</a></td>
             <td>
-              <a href={`/restaurants/${restaurantId}`} 
+              <a href={`/restaurants/${restaurantId}/locations/${location.id}`} 
                  data-method='delete'
                  data-confirm={`Are you sure you want to delete '${location.name}'?`}
               >Destroy</a>
