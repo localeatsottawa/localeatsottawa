@@ -9,9 +9,9 @@ class Restaurant < ApplicationRecord
   
   private
   
-  def ensure_website_has_protocol
-    if ( self.website !~ /^https?:\/\// && !self.website.to_s.strip.empty? )
-      self.website = "http://" + self.website
+    def ensure_website_has_protocol
+      if ( self.website !~ /^https?:\/\// && !self.website.to_s.strip.empty? )
+        self.website = "http://" + self.website
+      end
     end
-  end
 end
