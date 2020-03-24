@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  def home
-    @restaurants = Restaurant.all.alphabetical
+  def admin_menu
+    authorize! :view, :admin_menu
   end
+  
 end

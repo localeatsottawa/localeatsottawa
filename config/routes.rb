@@ -12,6 +12,8 @@ Rails.application.routes.draw do
       get :thank_you
     end
   end
+
+  get '/admin_menu' => 'pages#admin_menu'
   
   namespace :api do
     namespace :v1 do
