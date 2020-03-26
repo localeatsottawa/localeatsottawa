@@ -52,26 +52,24 @@ class Location extends React.Component {
   render() {
     const { restaurantId, location } = this.props;
     return (
-      <tr className='component-location'>
-        <td className='address-col'>
+      <div className='component-location'>
+        <div className='address'>
           <i className='fas fa-map-marker-alt' />{`${location.name} (${location.address})`}
-        </td>
-        <td>
+        </div>
+        <div className='delivery-options'>
           {this.deliveryOptions()}
-        </td>
+        </div>
         {
           window.gon.admin &&
-          <React.Fragment>
-            <td><a href={`/restaurants/${restaurantId}/locations/${location.id}/edit`}>Edit</a></td>
-            <td>
-              <a href={`/restaurants/${restaurantId}/locations/${location.id}`} 
-                 data-method='delete'
-                 data-confirm={`Are you sure you want to delete '${location.name}'?`}
-              >Destroy</a>
-            </td>
-          </React.Fragment>
+          <div className='actions'>
+            <a href={`/restaurants/${restaurantId}/locations/${location.id}/edit`}>Edit</a>
+            <a href={`/restaurants/${restaurantId}/locations/${location.id}`} 
+                data-method='delete'
+                data-confirm={`Are you sure you want to delete '${location.name}'?`}
+            >Destroy</a>
+          </div>
         }
-      </tr>
+      </div>
     );
   }
 }

@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  background: $light-gray-3;
 }
 
 
@@ -13,7 +14,6 @@ body {
 }
 
 #header {
-  background: $light-gray-3;
   text-align: center;
 
   .container {
@@ -55,8 +55,6 @@ body {
 }
 
 #content {
-  background: $light-gray-3;
-  padding-top: 10px;
 }
 
 #footer {

@@ -1,9 +1,24 @@
 .component-location {
-  
-  td.address-col {
+  display: flex;
+
+  .address {
+    width: 50%;
     i {
       color: $light-gray-1;
       margin-right: 8px;
+    }
+  }
+
+  @media #{$small-and-down} {
+    display: block;
+
+    .address {
+      width: 100%;
+    }
+
+    .delivery-options {
+      margin-top: 5px;
+      margin-left: 18px;
     }
   }
 }

@@ -41,16 +41,15 @@ class Restaurant extends React.Component {
           <div className="details">
             {
               restaurant.locations.length > 0 &&
-              <table>
-                <tbody>    
-                  {
-                    restaurant.locations.map((location) => {
-                      return <Location key={location.id} restaurantId={restaurant.id} location={location} />
-                    })
-                  }
-                </tbody>
-              </table>
+              <div className='locations'>
+                {
+                  restaurant.locations.map((location) => {
+                    return <Location key={location.id} restaurantId={restaurant.id} location={location} />
+                  })
+                }
+              </div>
             }
+            
             <div className='actions'>
               <a href={`/restaurants/${restaurant.id}/locations/new`}>Add new location</a>
               {

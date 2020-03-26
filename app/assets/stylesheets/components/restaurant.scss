@@ -24,22 +24,13 @@
     background: white;
     overflow: auto;
 
-    table {
+    .locations {
       font-size: 0.9em;
       width: 100%;
       border-collapse: collapse;
     
-      tbody {
-        tr {
-          border: none;
-  
-          td {
-            &.check-col {
-              text-align: center;
-              width: 80px;
-            }
-          }
-        }
+      .component-location {
+        margin-bottom: 16px;
       }
     }
   
