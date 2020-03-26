@@ -6,7 +6,7 @@
   .loading-restaurant {
     margin: 10px 0;
     height: 150px;
-    background: $light-gray;
+    background: $light-gray-1;
 
     animation-name: colorChange;
     animation-duration: 1.5s;
@@ -17,11 +17,11 @@
 
     @keyframes colorChange {
       0% {
-        background-color: $light-gray;
+        background-color: $light-gray-1;
       }
 
       100% {
-        background-color: $pale-gray;
+        background-color: $light-gray-3;
       }
     }
   }

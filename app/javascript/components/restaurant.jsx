@@ -16,10 +16,25 @@ class Restaurant extends React.Component {
     const { restaurant } = this.props;
     const { collapsed } = this.state;
     return (
-      <div className='component-restaurant'>
+      <div className='component-restaurant card'>
         <div className='header' onClick={this.handleHeaderClick}>
           <h2>{restaurant.name}</h2>
-          <i className={`fas ${collapsed ? 'fa-chevron-right' : 'fa-chevron-down'}`} />
+          <div className='contact-details'>
+            {
+              restaurant.website &&
+              <a href={`${restaurant.website}`} target="_blank">
+                {restaurant.website}
+              </a>
+            }
+            {
+              restaurant.website && restaurant.phone &&
+              <span className='separator'>·</span>
+            }
+            {
+              restaurant.phone &&
+              <a href={`tel:${restaurant.phone}`}>{restaurant.phone}</a>
+            }
+          </div>
         </div>
         {
           !collapsed &&
@@ -27,24 +42,6 @@ class Restaurant extends React.Component {
             {
               restaurant.locations.length > 0 &&
               <table>
-                <thead>
-                  <tr>
-                    <td>Location</td>
-                    <td className='check-col'>Pickup</td>
-                    <td className='check-col'>Delivery</td>
-                    <td className='check-col'>Skip the Dishes</td>
-                    <td className='check-col'>Uber Eats</td>
-                    <td className='check-col'>Foodora</td>
-                    <td className='check-col'>DoorDash</td>
-                    { 
-                      window.gon.admin &&
-                      <React.Fragment>
-                        <td></td>
-                        <td></td>
-                      </React.Fragment>
-                    }
-                  </tr>
-                </thead>
                 <tbody>    
                   {
                     restaurant.locations.map((location) => {
@@ -72,15 +69,7 @@ class Restaurant extends React.Component {
               }
             </div>
             <div className='contact-info'>
-              {
-                restaurant.website &&
-                <a href={`${restaurant.website}`} target="_blank">Go to website</a>
-              }
-              {' '}
-              {
-                restaurant.phone &&
-                <a href={`tel:${restaurant.phone}`}>{restaurant.phone}</a>
-              }
+              
             </div>
           </div>
         }

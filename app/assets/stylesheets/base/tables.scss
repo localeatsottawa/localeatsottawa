@@ -6,7 +6,7 @@ table {
     thead {
       tr {
         th {
-          background: $light-gray;
+          background: $light-gray-1;
           padding: 5px;
         }
       }
@@ -14,7 +14,7 @@ table {
 
     tbody {
       tr {
-        border-bottom: 1px solid $light-gray;
+        border-bottom: 1px solid $light-gray-1;
         td {
           padding: 5px;
         }

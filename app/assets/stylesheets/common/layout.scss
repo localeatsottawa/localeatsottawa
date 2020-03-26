@@ -3,14 +3,7 @@ body {
   margin: 0;
 }
 
-/* Banner */
-.index-banner {
-  padding: 1px;
-  text-align: center;
-  background: $primary-color-light-2;
-  font-weight: bold;
-  font-size: 13px;
-}
+
 
 .container {
   margin: 0 auto;
@@ -20,23 +13,31 @@ body {
 }
 
 #header {
-  background: $primary-color;
-  color: white;
-  padding: 10px 0;
+  background: $light-gray-3;
+  text-align: center;
 
   .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;;
+    color: white;
+    background: $primary-color;
+    padding: 10px 0;
+    
+    .logo {
+      margin-top: 40px;
+      height: 70px;
+    }
+
+    .blurb {
+      width: 100%;
+      max-width: 760px;
+      margin: 12px auto 12px auto;
+      font-size: 16px;
+    }
   }
 
-  .logo {
-    height: 40px;
-  }
 
   .nav-links {
-    display: flex;
-    align-items: center;
+    margin: 20px 0 40px 0;
+    text-align: center;
 
     a.nav-link {
       color: white;
@@ -46,7 +47,7 @@ body {
       font-size: 0.8em;
 
       &:hover {
-        color: $light-gray;
+        color: $light-gray-1;
       }
     }
   }
@@ -54,7 +55,8 @@ body {
 }
 
 #content {
-  
+  background: $light-gray-3;
+  padding-top: 10px;
 }
 
 #footer {

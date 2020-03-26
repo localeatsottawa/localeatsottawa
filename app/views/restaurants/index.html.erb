@@ -1,18 +1,15 @@
 <%= javascript_pack_tag 'restaurants' %>
 
 <div id="restaurants-index">
-  <h1>Welcome to Local Eats Ottawa!</h1>
-
-  <div class='blurb'>
-    Hungry? These restaurants offer food delivery or pickup options. You can submit your favourite local restaurant if you don't see it. 
-  </div>
-
   <div class='new-restaurant-container'>
-    <%= link_to 'Submit new restaurant', new_restaurant_path, class: 'btn btn-primary' %>
-  </div>
+    <%= link_to new_ticket_path, class: 'btn btn-secondary' do %>
+      <i class='far fa-envelope'></i> Submit Feedback
+    <% end %>
 
-  <div class='new-ticket-container'>
-    <%= link_to 'Submit correction, omission, or general feedback', new_ticket_path %>
+    <%= link_to new_restaurant_path, class: 'btn btn-primary' do %>
+      <i class='fas fa-plus'></i> Add restaurant
+    <% end %>
+
   </div>
 
   <div id='restaurants-mount-point'></div>

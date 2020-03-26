@@ -1,7 +1,9 @@
 a {
   color: $primary-color;
+  text-decoration: none;
   
   &:hover {
-    color: $primary-color-dark-1;
+    text-decoration: underline;
+    // color: $primary-color-dark-1;
   }
 }

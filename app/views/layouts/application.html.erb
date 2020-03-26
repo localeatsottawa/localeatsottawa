@@ -24,6 +24,7 @@
     <script src="https://kit.fontawesome.com/c593d4c0e6.js" crossorigin="anonymous"></script>
     <%= include_gon %>
 
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500&display=swap" rel="stylesheet">
    
 
   </head>
@@ -31,28 +32,19 @@
   <body>
     <div id="header">
       <div class="container">
-        <%= link_to image_tag('logo_white.png', class: 'logo'), root_path %>
-
+        <%= image_tag 'logo_white.png', class: 'logo' %>
         
+        <p class='blurb'> 
+          ❤️
+          Restaurants in the City of Ottawa have closed for dining due to COVID-19. 
+          But many are still open for business, employing thousands in the city, through pickup and delivery options. 
+          #supportlocal
+          ❤️
+        </p>
         <div class='nav-links'>
           <a href="https://twitter.com/LocalEatsYOW?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @LocalEatsYOW</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-          <% if user_signed_in? %>
-            <% if admin? %>
-              <%= link_to 'admin menu', admin_menu_path, class: 'nav-link' %>
-            <% end %>
-            <%= link_to 'sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %>
-          <% end %>
         </div>
       </div>
-    </div>
-    <div class="index-banner">
-      <p> 
-        ❤️
-        Restaurants in the City of Ottawa have closed for dining due to COVID-19. 
-        But many are still open for business, employing thousands in the city, through pickup and delivery options. 
-        #supportlocal
-        ❤️
-      </p>
     </div>
     <div id="content">
       <div class="container">
