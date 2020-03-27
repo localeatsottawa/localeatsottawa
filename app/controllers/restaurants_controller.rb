@@ -5,7 +5,7 @@ class RestaurantsController < ApplicationController
     @restaurants = @restaurants.alphabetical
 
     respond_to do |format|
-      format.html
+      format.html { @landing_header = true }
       format.json
     end
   end

@@ -30,22 +30,24 @@
   </head>
 
   <body>
-    <div id="header">
+    <div id="header" class="<%= @landing_header ? 'landing-header' : '' %>">
       <div class="container">
-        <%= image_tag 'logo_white.png', class: 'logo' %>
-        
-        <p class='blurb'> 
-          ❤️
-          Restaurants in the City of Ottawa have closed for dining due to COVID-19. 
-          But many are still open for business, employing thousands in the city, through pickup and delivery options. 
-          #supportlocal
-          ❤️
-        </p>
-        <div class='nav-links'>
-          <div class='twitter-follow-container'>
-            <a href="https://twitter.com/LocalEatsYOW?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @LocalEatsYOW</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <%= link_to image_tag('logo_white.png', class: 'logo'), root_path %>
+          
+        <% if @landing_header %>
+          <p class='blurb'> 
+            ❤️
+            Restaurants in the City of Ottawa have closed for dining due to COVID-19. 
+            But many are still open for business, employing thousands in the city, through pickup and delivery options. 
+            #supportlocal
+            ❤️
+          </p>
+          <div class='nav-links'>
+            <div class='twitter-follow-container'>
+              <a href="https://twitter.com/LocalEatsYOW?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-count="false">Follow @LocalEatsYOW</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            </div>
           </div>
-        </div>
+        <% end %>
       </div>
     </div>
     <div id="content">

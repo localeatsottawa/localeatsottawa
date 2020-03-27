@@ -14,23 +14,33 @@ body {
 }
 
 #header {
-  text-align: center;
 
+  
   .container {
-    color: white;
     background: $primary-color;
+    text-align: center;
+    color: white;
     padding: 10px 0;
-    
-    .logo {
-      margin-top: 40px;
-      height: 70px;
-    }
 
-    .blurb {
-      width: 100%;
-      max-width: 760px;
-      margin: 12px auto 12px auto;
-      font-size: 16px;
+    .logo {
+      height: 40px;
+      margin: 5px 0;
+    }
+  }
+
+  &.landing-header {
+    .container {
+      .logo {
+        margin-top: 40px;
+        height: 70px;
+      }
+  
+      .blurb {
+        width: 100%;
+        max-width: 760px;
+        margin: 12px auto 12px auto;
+        font-size: 16px;
+      }
     }
   }
 
