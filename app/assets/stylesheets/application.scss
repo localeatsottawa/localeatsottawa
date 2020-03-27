@@ -6,9 +6,11 @@
 @import 'base/buttons';
 @import 'base/tables';
 @import 'base/typography';
+@import 'base/notices';
 @import 'common/*';
 
 @import 'components/*';
 
+@import 'views/locations/*';
 @import 'views/restaurants/*';
 @import 'views/tickets/*';

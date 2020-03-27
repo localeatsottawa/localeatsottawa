@@ -1,5 +1,16 @@
-<h1>New <%= @restaurant.name %> Location</h1>
+<div id="locations-new">
+  <% if params[:from_restaurant_form] %>
+    <div class='notice'>
+      😃Thanks for adding <%= @restaurant.name %> to our list! 
+      If you happen to their location and delivery information, please
+      enter it below. Otherwise you can head back to our <%= link_to 'main page', root_path %>.
+    </div>
+  <% end %>
 
-<%= render 'form', location: @location %>
+  <h1>New <%= @restaurant.name %> Location</h1>
 
-<%= link_to 'Back', restaurants_path %>
+
+  <%= render 'form', location: @location %>
+
+  <%= link_to 'Back', restaurants_path %>
+</div>

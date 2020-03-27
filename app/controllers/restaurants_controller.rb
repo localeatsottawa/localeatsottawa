@@ -24,7 +24,7 @@ class RestaurantsController < ApplicationController
     @restaurant = Restaurant.new(restaurant_params)
 
     if @restaurant.save
-      redirect_to restaurants_path, notice: 'Restaurant was successfully created.'
+      redirect_to new_restaurant_location_path(@restaurant, from_restaurant_form: true), notice: 'Restaurant was successfully created.'
     else
       render :new
     end
