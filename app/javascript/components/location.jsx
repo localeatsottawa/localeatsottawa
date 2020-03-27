@@ -53,16 +53,19 @@ class Location extends React.Component {
     const { restaurantId, location } = this.props;
     return (
       <div className='component-location'>
-        <div className='address'>
-          <i className='fas fa-map-marker-alt' />{`${location.name} (${location.address})`}
-        </div>
-        <div className='delivery-options'>
-          {this.deliveryOptions()}
+        <div className='main-info'>
+          <div className='address'>
+            <i className='fas fa-map-marker-alt' />{`${location.name} (${location.address})`}
+          </div>
+          <div className='delivery-options'>
+            {this.deliveryOptions()}
+          </div>
         </div>
         {
           window.gon.admin &&
-          <div className='actions'>
+          <div className='location-actions'>
             <a href={`/restaurants/${restaurantId}/locations/${location.id}/edit`}>Edit</a>
+            {' '}
             <a href={`/restaurants/${restaurantId}/locations/${location.id}`} 
                 data-method='delete'
                 data-confirm={`Are you sure you want to delete '${location.name}'?`}

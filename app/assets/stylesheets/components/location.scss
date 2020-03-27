@@ -1,24 +1,33 @@
 .component-location {
-  display: flex;
-
-  .address {
-    width: 50%;
-    i {
-      color: $light-gray-1;
-      margin-right: 8px;
+  .main-info {
+    display: flex;
+  
+    .address {
+      width: 50%;
+      i {
+        color: $light-gray-1;
+        margin-right: 8px;
+      }
     }
   }
 
+  .location-actions {
+    margin-top: 5px;
+    margin-left: 18px;
+  }
+
   @media #{$small-and-down} {
-    display: block;
-
-    .address {
-      width: 100%;
-    }
-
-    .delivery-options {
-      margin-top: 5px;
-      margin-left: 18px;
+    .main-info {
+      display: block;
+  
+      .address {
+        width: 100%;
+      }
+  
+      .delivery-options {
+        margin-top: 5px;
+        margin-left: 18px;
+      }
     }
   }
 }
