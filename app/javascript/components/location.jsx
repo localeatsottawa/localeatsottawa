@@ -55,7 +55,7 @@ class Location extends React.Component {
       <div className='component-location'>
         <div className='main-info'>
           <div className='address'>
-            <i className='fas fa-map-marker-alt' />{`${location.name} (${location.address})`}
+            <i className='fas fa-map-marker-alt' />{location.address}
           </div>
           <div className='delivery-options'>
             {this.deliveryOptions()}
