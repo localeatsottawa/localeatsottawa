@@ -11,7 +11,7 @@ class Restaurant extends React.Component {
           <div className='contact-details'>
             {
               restaurant.website &&
-              <a href={`${restaurant.website}`} target="_blank">
+              <a href={`${restaurant.website}`} className='contact-restaurant-website' target="_blank">
                 {restaurant.website}
               </a>
             }

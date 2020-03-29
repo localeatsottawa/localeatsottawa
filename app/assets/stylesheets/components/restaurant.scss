@@ -13,9 +13,46 @@
 
     .contact-details {
       font-size: 13px;
+      display: flex;
+      flex-direction: row;
+      
+      a[href*="tel:"] {
+        flex-basis: auto;
+        flex-shrink: 0;
+        flex-grow: 0;
+        display: inline-block;
+        white-space: nowrap;
+        
+        @media #{$small-and-down} {
+          margin-left: 20px;
+          margin-right: auto;
+          text-align: right;
+        }
+        
+      }
       
       .separator {
-        margin: 10px 5px;
+        display: none;
+        
+        @media #{$medium-and-up} {
+          display: inline;
+          margin: 0 10px;
+          flex-basis: 0;
+          flex-shrink: 1;
+          flex-grow: 0;  
+        }
+      }
+      
+      .contact-restaurant-website {
+        flex-grow: 0;
+        flex-basis: auto;
+        flex-shrink: 1;
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        @media #{$small-and-down} {
+          flex-grow: 1;
+        }
       }
     }
   }
