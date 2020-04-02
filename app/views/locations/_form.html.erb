@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'locations_form' %>
+
 <%= form_with(model: [@restaurant, location], local: true) do |form| %>
   <% if location.errors.any? %>
     <div id="error_explanation">
@@ -17,33 +19,63 @@
   </div>
 
   <div class="field">
-    <%= form.check_box :pickup %>
+    <%= form.check_box :pickup, class: 'checkbox-for-url', data: {url_field_id: 'pickup-url-field'} %>
     <%= form.label :pickup, class: 'checkbox-label' %>
   </div>
 
+  <div class="field" id="pickup-url-field">
+    <%= form.label :pickup_link %>
+    <%= form.text_field :pickup_url %>
+  </div>
+
   <div class="field">
-    <%= form.check_box :delivery %>
+    <%= form.check_box :delivery, class: 'checkbox-for-url', data: {url_field_id: 'delivery-url-field'} %>
     <%= form.label :delivery, class: 'checkbox-label' %>
   </div>
 
+  <div class="field" id="delivery-url-field">
+    <%= form.label :delivery_link %>
+    <%= form.text_field :delivery_url %>
+  </div>
+
   <div class="field">
-    <%= form.check_box :skip_the_dishes %>
+    <%= form.check_box :skip_the_dishes, class: 'checkbox-for-url', data: {url_field_id: 'skip-the-dishes-url-field'} %>
     <%= form.label :skip_the_dishes, class: 'checkbox-label' %>
   </div>
 
+  <div class="field" id="skip-the-dishes-url-field">
+    <%= form.label :skip_the_dishes_link %>
+    <%= form.text_field :skip_the_dishes_url %>
+  </div>
+
   <div class="field">
-    <%= form.check_box :uber_eats %>
+    <%= form.check_box :uber_eats, class: 'checkbox-for-url', data: {url_field_id: 'uber-eats-url-field'} %>
     <%= form.label :uber_eats, class: 'checkbox-label' %>
   </div>
 
-  <div class="field">
-    <%= form.check_box :foodora %>
-    <%= form.label :foodora, class: 'checkbox-label' %>
+  <div class="field" id="uber-eats-url-field">
+    <%= form.label :uber_eats_link %>
+    <%= form.text_field :uber_eats_url %>
   </div>
 
   <div class="field">
-    <%= form.check_box :door_dash %>
+    <%= form.check_box :foodora, class: 'checkbox-for-url', data: {url_field_id: 'foodora-url-field'} %>
+    <%= form.label :foodora, class: 'checkbox-label' %>
+  </div>
+
+  <div class="field" id="foodora-url-field">
+    <%= form.label :foodora_link %>
+    <%= form.text_field :foodora_url %>
+  </div>
+
+  <div class="field">
+    <%= form.check_box :door_dash, class: 'checkbox-for-url', data: {url_field_id: 'door-dash-url-field'} %>
     <%= form.label :door_dash, class: 'checkbox-label' %>
+  </div>
+
+  <div class="field" id="door-dash-url-field">
+    <%= form.label :door_dash_link %>
+    <%= form.text_field :door_dash_url %>
   </div>
 
   <div class="field">

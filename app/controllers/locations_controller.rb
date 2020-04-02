@@ -40,6 +40,7 @@ class LocationsController < ApplicationController
       params.require(:location).permit(:name,
                                        :address,
                                        :pickup,
+                                       :pickup_url,
                                        :delivery,
                                        :skip_the_dishes,
                                        :uber_eats,

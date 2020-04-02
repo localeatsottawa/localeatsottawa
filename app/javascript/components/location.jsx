@@ -2,8 +2,42 @@ import React from 'react';
 import CheckIcon from './check_icon';
 
 class Location extends React.Component {
+  friendlyDeliveryOptionName = (option) => {
+    if (option == "pickup") {
+      return "Pickup";
+    }
+    else if (option == "delivery") {
+      return "Delivery";
+    }
+    else if (option == "skip_the_dishes") {
+      return "Skip The Dishes";
+    }
+    else if (option == "uber_eats") {
+      return "Uber Eats";
+    }
+    else if (option == "foodora") {
+      return "Foodora";
+    }
+    else if (option == "door_dash") {
+      return "Door Dash";
+    }
+  }
+  
   deliveryOptions = () => {
     const { location } = this.props;
+    return ["pickup", "delivery", "skip_the_dishes", "uber_eats", "foodora", "door_dash"].map((option) => {
+      return (
+        location[option] && 
+        <span>
+          {
+            ((location[option+"_url"] == null) || (location[option+"_url"].length == 0)) ?
+              this.friendlyDeliveryOptionName(option)
+            :
+              <a href={location[option+"_url"]}>{this.friendlyDeliveryOptionName(option)}</a>
+          }
+        </span>
+      );
+    })
 
     let output = '';
 
