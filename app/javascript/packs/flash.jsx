@@ -9,7 +9,7 @@ class Flash extends React.Component {
   componentDidMount() {
     window.setTimeout(() => {
       this.setState({ visible: false })
-    }, 5000);
+    }, 4000);
   }
 
   handleClose = (e) => {
@@ -22,7 +22,8 @@ class Flash extends React.Component {
     const { visible } = this.state;
 
     return (
-      <div className={`component-flash ${flashType} ${!visible && 'invisible'}`}>
+      visible &&
+      <div className={`component-flash ${flashType}`}>
         <span className='message'>{message}</span>
         <a href='#' onClick={this.handleClose}><i className='fas fa-times' /></a>
       </div>

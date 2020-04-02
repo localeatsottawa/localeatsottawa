@@ -1,12 +1,13 @@
 .component-flash {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  right: 20px;
   background: $pale-info;
   color: $dark-info;
   padding: 10px 20px;
   border-radius: $border-radius;
-  box-shadow: 2px 2px 2px $dark-gray;
+  box-shadow: 2px 2px 2px $dark-gray-1;
+  
   opacity: 1;
   transition: 1000ms;
   
@@ -35,10 +36,4 @@
       color: $dark-error;
     }
   }
-
-  &.invisible {
-    opacity: 0;
-  }
-
-
 }

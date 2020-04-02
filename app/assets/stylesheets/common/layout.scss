@@ -4,63 +4,67 @@ body {
   background: $light-gray-3;
 }
 
-
-
 .container {
   margin: 0 auto;
   max-width: 1170px;
   width: calc(100% - 20px);
   padding: 0 10px;
-}
 
-#header {
-  text-align: center;
-
-  .container {
-    color: white;
+  #header {
     background: $primary-color;
-    padding: 10px 0;
+    text-align: center;
+    color: white;
+    padding: 0 20px;
     
     .logo {
-      margin-top: 40px;
-      height: 70px;
+      height: 40px;
+      margin: 5px 0;
     }
+  
+    &.landing-header {
+      padding-bottom: 60px;
 
-    .blurb {
-      width: 100%;
-      max-width: 760px;
-      margin: 12px auto 12px auto;
-      font-size: 16px;
-    }
-  }
-
-
-  .nav-links {
-    margin: 20px 0 40px 0;
-    text-align: center;
-
-    a.nav-link {
-      color: white;
-      text-decoration: none;
-      margin-left: 20px;
-      text-transform: uppercase;
-      font-size: 0.8em;
-
-      &:hover {
-        color: $light-gray-1;
+      .logo {
+        margin: 50px 0 10px 0;
+        height: 70px;
+      }
+  
+      .blurb {
+        width: 100%;
+        max-width: 760px;
+        margin: 12px auto 12px auto;
+        font-size: 16px;
       }
     }
-
-    .twitter-follow-container {
-      height: 20px;
+  
+    .nav-links {
+      text-align: center;
+      margin-top: 10px;
+  
+      a.nav-link {
+        color: white;
+        text-decoration: none;
+        margin-left: 20px;
+        text-transform: uppercase;
+        font-size: 0.8em;
+  
+        &:hover {
+          color: $light-gray-1;
+        }
+      }
+  
+      .twitter-follow-container {
+        height: 20px;
+      }
     }
+  
   }
-
+  
+  #content {
+    padding-bottom: 20px;
+  }
+  
+  #footer {
+  }
 }
 
-#content {
-}
-
-#footer {
-
-}
