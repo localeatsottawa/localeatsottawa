@@ -1,4 +1,24 @@
 .component-restaurants {
+  
+  .restaurant-actions {
+    display: flex;
+    margin: 10px 0;
+    justify-content: space-between;
+    position: relative;
+
+    .right-section {
+
+      text-align: right;
+    }
+
+    .filters-pop-up {
+      position: absolute;
+      top: 40px;
+      left: 0;
+      padding: 10px;
+    }
+  }
+
   .component-restaurant {
     margin: 10px 0;
   }
