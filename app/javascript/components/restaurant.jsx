@@ -4,6 +4,14 @@ import Location from './location';
 class Restaurant extends React.Component {
   render() {
     const { restaurant } = this.props;
+    var websiteStr
+    websiteStr = restaurant.website
+    websiteStr = websiteStr.replace(/\/$/, '')
+    websiteStr = websiteStr.split('://')
+    websiteStr = websiteStr[1].split('www.')
+    if (websiteStr[1]) {
+      websiteStr = websiteStr[1]
+    }
     return (
       <div className='component-restaurant card'>
         <div className='header'>
@@ -12,7 +20,7 @@ class Restaurant extends React.Component {
             {
               restaurant.website &&
               <a href={`${restaurant.website}`} target="_blank">
-                {restaurant.website}
+                  {websiteStr}
               </a>
             }
             {
