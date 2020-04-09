@@ -4,6 +4,17 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = @restaurants.alphabetical
 
+    @restaurants = @restaurants.joins(:locations)
+  
+    @restaurants = @restaurants.where('locations.pickup = ?', params[:pickup] == 'true')
+    @restaurants = @restaurants.or(@restaurants.where('locations.delivery = ?', params[:delivery] == 'true'))
+    @restaurants = @restaurants.or(@restaurants.where('locations.uber_eats = ?', params[:uber_eats] == 'true'))
+    @restaurants = @restaurants.or(@restaurants.where('locations.skip_the_dishes = ?', params[:skip_the_dishes] == 'true'))
+    @restaurants = @restaurants.or(@restaurants.where('locations.door_dash = ?', params[:door_dash] == 'true'))
+    @restaurants = @restaurants.or(@restaurants.where('locations.foodora = ?', params[:foodora] == 'true'))
+
+    @restaurants = @restaurants.includes(:locations)
+
     respond_to do |format|
       format.html { @landing_header = true }
       format.json
@@ -50,5 +61,5 @@ class RestaurantsController < ApplicationController
                                          :location,
                                          :website,
                                          :phone)
-    end
+    end    
 end
