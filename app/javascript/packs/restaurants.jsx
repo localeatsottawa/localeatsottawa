@@ -88,64 +88,66 @@ class Restaurants extends React.Component {
             {
               showFilters &&
               <div className='filters-pop-up pop-up'>
-                <div>Filters</div>
-                <div className='field'>
-                  <input
-                    id='filter-pickup'
-                    name="filterPickup"
-                    type="checkbox"
-                    checked={filterPickup}
-                    onChange={this.handleInputChange} />
-                  <label htmlFor='filter-pickup'>Pickup</label>
-                </div>
-                <div className='field'>
-                  <input
-                    id='filter-delivery'
-                    name="filterDelivery"
-                    type="checkbox"
-                    checked={filterDelivery}
-                    onChange={this.handleInputChange} />
-                  <label htmlFor='filter-delivery'>Delivery</label>
-                </div>
-                <div className='field'>
-                  <input
-                    id='filter-uber-eats'
-                    name="filterUberEats"
-                    type="checkbox"
-                    checked={filterUberEats}
-                    onChange={this.handleInputChange} />
-                  <label htmlFor='filter-uber-eats'>Uber Eats</label>
-                </div>
-                <div className='field'>
-                  <input
-                    id='filter-skip-the-dishes'
-                    name="filterSkipTheDishes"
-                    type="checkbox"
-                    checked={filterSkipTheDishes}
-                    onChange={this.handleInputChange} />
-                  <label htmlFor='filter-skip-the-dishes'>Skip the Dishes</label>
-                </div>
-                <div className='field'>
-                  <input
-                    id='filter-foodora'
-                    name="filterFoodora"
-                    type="checkbox"
-                    checked={filterFoodora}
-                    onChange={this.handleInputChange} />
-                  <label htmlFor='filter-foodora'>Foodora</label>
-                </div>
-                <div className='field'>
-                  <input
-                    id='filter-door-dash'
-                    name="filterDoorDash"
-                    type="checkbox"
-                    checked={filterDoorDash}
-                    onChange={this.handleInputChange} />
-                  <label htmlFor='filter-door-dash'>DoorDash</label>
-                </div>
-                <div>
-                  <a href="#" onClick={(e) => { e.preventDefault(); this.loadRestaurants()}} className='btn btn-primary'>Submit</a>
-                </div>
+                <div className='header'>Filters</div>
+                <form className='fields'>
+                  <div className='field'>
+                    <input
+                      id='filter-pickup'
+                      name="filterPickup"
+                      type="checkbox"
+                      checked={filterPickup}
+                      onChange={this.handleInputChange} />
+                    <label className='checkbox-label' htmlFor='filter-pickup'>Pickup</label>
+                  </div>
+                  <div className='field'>
+                    <input
+                      id='filter-delivery'
+                      name="filterDelivery"
+                      type="checkbox"
+                      checked={filterDelivery}
+                      onChange={this.handleInputChange} />
+                    <label className='checkbox-label' htmlFor='filter-delivery'>Delivery</label>
+                  </div>
+                  <div className='field'>
+                    <input
+                      id='filter-uber-eats'
+                      name="filterUberEats"
+                      type="checkbox"
+                      checked={filterUberEats}
+                      onChange={this.handleInputChange} />
+                    <label className='checkbox-label' htmlFor='filter-uber-eats'>Uber Eats</label>
+                  </div>
+                  <div className='field'>
+                    <input
+                      id='filter-skip-the-dishes'
+                      name="filterSkipTheDishes"
+                      type="checkbox"
+                      checked={filterSkipTheDishes}
+                      onChange={this.handleInputChange} />
+                    <label className='checkbox-label' htmlFor='filter-skip-the-dishes'>Skip the Dishes</label>
+                  </div>
+                  <div className='field'>
+                    <input
+                      id='filter-foodora'
+                      name="filterFoodora"
+                      type="checkbox"
+                      checked={filterFoodora}
+                      onChange={this.handleInputChange} />
+                    <label className='checkbox-label' htmlFor='filter-foodora'>Foodora</label>
+                  </div>
+                  <div className='field'>
+                    <input
+                      id='filter-door-dash'
+                      name="filterDoorDash"
+                      type="checkbox"
+                      checked={filterDoorDash}
+                      onChange={this.handleInputChange} />
+                    <label className='checkbox-label' htmlFor='filter-door-dash'>DoorDash</label>
+                  </div>
+                  <div className='actions'>
+                    <a href="#" onClick={(e) => { e.preventDefault(); this.loadRestaurants()}} className='btn btn-primary'>Submit</a>
+                  </div>
+                </form>
               </div>
             }
           </div>

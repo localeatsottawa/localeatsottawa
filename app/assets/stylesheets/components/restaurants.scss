@@ -16,6 +16,21 @@
       top: 40px;
       left: 0;
       padding: 10px;
+      min-width: 200px;
+      max-width: 100%;
+
+      .header {
+        color: $gray;
+      }
+
+      .fields {
+        margin-top: 10px;
+
+        .field {
+          margin: 5px 0 15px 0;
+        }
+      }
+
     }
   }
 
