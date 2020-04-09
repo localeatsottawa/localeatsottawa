@@ -1,5 +1,5 @@
 import React from 'react';
-import CheckIcon from './check_icon';
+import Pill from './pill';
 
 class Location extends React.Component {
   friendlyDeliveryOptionName = (option) => {
@@ -28,14 +28,7 @@ class Location extends React.Component {
     return ["pickup", "delivery", "skip_the_dishes", "uber_eats", "foodora", "door_dash"].map((option) => {
       return (
         location[option] && 
-        <span>
-          {
-            ((location[option+"_url"] == null) || (location[option+"_url"].length == 0)) ?
-              this.friendlyDeliveryOptionName(option)
-            :
-              <a href={location[option+"_url"]}>{this.friendlyDeliveryOptionName(option)}</a>
-          }
-        </span>
+        <Pill text={this.friendlyDeliveryOptionName(option)} url={location[option+"_url"]} />
       );
     })
 

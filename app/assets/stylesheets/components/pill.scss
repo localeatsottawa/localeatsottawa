@@ -1,0 +1,16 @@
+.component-pill{
+  display: inline-block;
+  background: #3AA76D;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 10px;
+  i{
+    margin-left: 5px;
+  }
+}
+
+a.component-pill{
+  &:hover {
+    text-decoration: none;
+  }
+}
