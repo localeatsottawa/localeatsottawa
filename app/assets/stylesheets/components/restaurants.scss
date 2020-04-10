@@ -38,6 +38,16 @@
     margin: 10px 0;
   }
 
+  .empty-state-message {
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    height: 100px;
+    font-style: italic;
+  }
+
   .loading-restaurant {
     margin: 10px 0;
     height: 200px;

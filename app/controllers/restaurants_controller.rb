@@ -2,18 +2,35 @@ class RestaurantsController < ApplicationController
   load_and_authorize_resource
 
   def index
-    @restaurants = @restaurants.alphabetical
-
-    @restaurants = @restaurants.joins(:locations)
+    # Force false condition to start since the rest are OR conditions
+    @restaurants = @restaurants.joins(:locations).where(id: -1)
   
-    @restaurants = @restaurants.where('locations.pickup = ?', params[:pickup] == 'true')
-    @restaurants = @restaurants.or(@restaurants.where('locations.delivery = ?', params[:delivery] == 'true'))
-    @restaurants = @restaurants.or(@restaurants.where('locations.uber_eats = ?', params[:uber_eats] == 'true'))
-    @restaurants = @restaurants.or(@restaurants.where('locations.skip_the_dishes = ?', params[:skip_the_dishes] == 'true'))
-    @restaurants = @restaurants.or(@restaurants.where('locations.door_dash = ?', params[:door_dash] == 'true'))
-    @restaurants = @restaurants.or(@restaurants.where('locations.foodora = ?', params[:foodora] == 'true'))
+    if params[:pickup] == 'true'
+      @restaurants = @restaurants.or(Restaurant.joins(:locations).where('locations.pickup = ?', true))
+    end
 
-    @restaurants = @restaurants.includes(:locations)
+    if params[:delivery] == 'true'
+      @restaurants = @restaurants.or(Restaurant.joins(:locations).where('locations.delivery = ?', true))
+    end
+
+    if params[:uber_eats] == 'true'
+      @restaurants = @restaurants.or(Restaurant.joins(:locations).where('locations.uber_eats = ?', true))
+    end
+
+    if params[:skip_the_dishes] == 'true'
+      @restaurants = @restaurants.or(Restaurant.joins(:locations).where('locations.skip_the_dishes = ?', true))
+    end
+
+    if params[:door_dash] == 'true'
+      @restaurants = @restaurants.or(Restaurant.joins(:locations).where('locations.door_dash = ?', true))
+    end
+
+    if params[:foodora] == 'true'
+      @restaurants = @restaurants.or(Restaurant.joins(:locations).where('locations.foodora = ?', true))
+    end
+
+
+    @restaurants = @restaurants.includes(:locations).alphabetical
 
     respond_to do |format|
       format.html { @landing_header = true }

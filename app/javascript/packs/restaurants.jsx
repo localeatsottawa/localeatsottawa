@@ -174,9 +174,17 @@ class Restaurants extends React.Component {
             </React.Fragment>
           }
           {
-            !loadingRestaurants && restaurants.map((restaurant) => {
-              return (<Restaurant key={restaurant.id} restaurant={restaurant} />)
-            })
+            !loadingRestaurants &&
+              (
+                restaurants.length > 0 ?
+                  restaurants.map((restaurant) => {
+                    return (<Restaurant key={restaurant.id} restaurant={restaurant} />)
+                  })
+                :
+                  <div className='empty-state-message card'>
+                    We're sorry, but there are no restaurants that match the filters you have selected.
+                  </div>
+              )
           }
         </div>
       </div>
