@@ -2,11 +2,23 @@
   display: inline-block;
   background: $primary-color;
   color: white;
-  padding: 2px 5px;
+  padding: 2px 5px 2px;
   border-radius: 10px;
   i{
     margin-left: 5px;
-  }
+  }  
+}
+.uber_eats{
+  background: $uber-green;
+}
+.skip_the_dishes{
+  background: $skip-red;
+}
+.door_dash{
+  background: $doordash-red;
+}
+.foodora {
+  background: $foodora-purple;
 }
 
 a.component-pill{

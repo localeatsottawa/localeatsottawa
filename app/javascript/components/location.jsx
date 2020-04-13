@@ -28,7 +28,7 @@ class Location extends React.Component {
     return ["delivery", "pickup", "skip_the_dishes", "uber_eats", "foodora", "door_dash"].map((option) => {
       return (
         location[option] && 
-        <Pill text={this.friendlyDeliveryOptionName(option)} url={location[option+"_url"]} />
+        <Pill option={option} text={this.friendlyDeliveryOptionName(option)} url={location[option+"_url"]} />
       );
     })
   }
