@@ -15,17 +15,17 @@
   
   <div class="field">
     <%= form.label :address %>
-    <%= form.text_field :address %>
+    <%= form.text_field :address, :placeholder => "111 Wellington St" %>
   </div>
 
   <div class="field">
     <%= form.check_box :pickup, class: 'checkbox-for-url', data: {url_field_id: 'pickup-url-field'} %>
-    <%= form.label :pickup, class: 'checkbox-label' %>
+    <%= form.label :takeout, class: 'checkbox-label' %>
   </div>
 
   <div class="field" id="pickup-url-field">
-    <%= form.label :pickup_link %>
-    <%= form.text_field :pickup_url %>
+    <%= form.label :takeout_ordering_link %>
+    <%= form.text_field :pickup_url, :placeholder => "www.website.com/takeout" %>
   </div>
 
   <div class="field">
@@ -34,8 +34,8 @@
   </div>
 
   <div class="field" id="delivery-url-field">
-    <%= form.label :delivery_link %>
-    <%= form.text_field :delivery_url %>
+    <%= form.label :delivery_ordering_link %>
+    <%= form.text_field :delivery_url, :placeholder => "www.website.com/delivery" %>
   </div>
 
   <div class="field">
@@ -45,7 +45,7 @@
 
   <div class="field" id="skip-the-dishes-url-field">
     <%= form.label :skip_the_dishes_link %>
-    <%= form.text_field :skip_the_dishes_url %>
+    <%= form.text_field :skip_the_dishes_url, :placeholder => "www.skipthedishes.com/restaurant..." %>
   </div>
 
   <div class="field">
@@ -55,7 +55,7 @@
 
   <div class="field" id="uber-eats-url-field">
     <%= form.label :uber_eats_link %>
-    <%= form.text_field :uber_eats_url %>
+    <%= form.text_field :uber_eats_url, :placeholder => "www.ubereats.com/ca/ottawa/food-delivery/restaurant..." %>
   </div>
 
   <div class="field">
@@ -65,7 +65,7 @@
 
   <div class="field" id="foodora-url-field">
     <%= form.label :foodora_link %>
-    <%= form.text_field :foodora_url %>
+    <%= form.text_field :foodora_url, :placeholder => "www.foodora.ca/restaurant/..." %>
   </div>
 
   <div class="field">
@@ -75,12 +75,12 @@
 
   <div class="field" id="door-dash-url-field">
     <%= form.label :door_dash_link %>
-    <%= form.text_field :door_dash_url %>
+    <%= form.text_field :door_dash_url, :placeholder => "www.doordash.com/store/..." %>
   </div>
 
   <div class="field">
     <%= form.label :phone %>
-    <%= form.text_field :phone %>
+    <%= form.text_field :phone, :placeholder => "(613) 123-4567" %>
   </div>
   
   <div class="actions">
