@@ -7,9 +7,15 @@ child(:locations) do
              :name,
              :address,
              :delivery,
+             :delivery_url,
              :skip_the_dishes,
+             :skip_the_dishes_url,
              :uber_eats,
+             :uber_eats_url,
              :door_dash,
+             :door_dash_url,
              :pickup,
-             :foodora
+             :pickup_url,
+             :foodora,
+             :foodora_url
 end

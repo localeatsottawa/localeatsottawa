@@ -1,52 +1,57 @@
 import React from 'react';
-import CheckIcon from './check_icon';
+import Pill from './pill';
 
 class Location extends React.Component {
+  optionToClassName = (option) => {
+    if (option == "delivery") {
+      return "delivery";
+    }
+    else if (option == "pickup") {
+      return "pickup";
+    }
+    else if (option == "skip_the_dishes") {
+      return "skip-the-dishes";
+    }
+    else if (option == "uber_eats") {
+      return "uber-eats";
+    }
+    else if (option == "foodora") {
+      return "foodora";
+    }
+    else if (option == "door_dash") {
+      return "door-dash";
+    }
+  }
+  
+  friendlyDeliveryOptionName = (option) => {
+    if (option == "delivery") {
+      return "Delivery";
+    }
+    else if (option == "pickup") {
+      return "Takeout";
+    }
+    else if (option == "skip_the_dishes") {
+      return "Skip The Dishes";
+    }
+    else if (option == "uber_eats") {
+      return "Uber Eats";
+    }
+    else if (option == "foodora") {
+      return "Foodora";
+    }
+    else if (option == "door_dash") {
+      return "Door Dash";
+    }
+  }
+  
   deliveryOptions = () => {
     const { location } = this.props;
-
-    let output = '';
-
-    if(location.pickup) {
-      output += 'Pickup';
-    } 
-    
-    if(location.delivery) {
-      if(output.length > 0) {
-        output += ', ';
-      }
-      output += 'Delivery';
-    } 
-    
-    if(location.skip_the_dishes) {
-      if(output.length > 0) {
-        output += ', ';
-      }
-      output += 'Skip the Dishes';
-    } 
-    
-    if(location.uber_eats) {
-      if(output.length > 0) {
-        output += ', ';
-      }
-      output += 'Uber Eats';
-    } 
-    
-    if(location.foodora) {
-      if(output.length > 0) {
-        output += ', ';
-      }
-      output += 'Foodora'
-    } 
-    
-    if(location.door_dash) {
-      if(output.length > 0) {
-        output += ', '
-      }
-      output += 'Doordash';
-    } 
-
-    return output;
+    return ["delivery", "pickup", "skip_the_dishes", "uber_eats", "foodora", "door_dash"].map((option) => {
+      return (
+        location[option] && 
+        <Pill className={this.optionToClassName(option)} text={this.friendlyDeliveryOptionName(option)} url={location[option+"_url"]} />
+      );
+    })
   }
 
   render() {
