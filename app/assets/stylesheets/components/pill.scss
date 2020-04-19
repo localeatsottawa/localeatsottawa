@@ -8,18 +8,18 @@
   i{
     margin-left: 5px;
   }  
-}
-.uber_eats{
-  background: $uber-green;
-}
-.skip_the_dishes{
-  background: $skip-red;
-}
-.door_dash{
-  background: $doordash-red;
-}
-.foodora {
-  background: $foodora-purple;
+  &.uber-eats{
+    background: $uber-green;
+  }
+  &.skip-the-dishes{
+    background: $skip-red;
+  }
+  &.door-dash{
+    background: $doordash-red;
+  }
+  &.foodora {
+    background: $foodora-purple;
+  }
 }
 
 a.component-pill{
