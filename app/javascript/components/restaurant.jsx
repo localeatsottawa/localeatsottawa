@@ -8,9 +8,11 @@ class Restaurant extends React.Component {
     websiteStr = restaurant.website
     websiteStr = websiteStr.replace(/\/$/, '')
     websiteStr = websiteStr.split('://')
-    websiteStr = websiteStr[1].split('www.')
     if (websiteStr[1]) {
-      websiteStr = websiteStr[1]
+      websiteStr = websiteStr[1].split('www.')
+      if (websiteStr[1]) {
+        websiteStr = websiteStr[1]
+      }
     }
     return (
       <div className='component-restaurant card'>
