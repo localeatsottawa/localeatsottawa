@@ -19,4 +19,19 @@
     background-color: $primary-color-dark-transparent;
     color: $primary-color;
   }
+
+  &.btn-category {
+    margin: 5px 10px 10px 0px;
+    padding: 5px 8px;
+    background-color: $primary-color-dark-transparent;
+    font-weight: bold;
+    font-size: large;
+    color: black;
+    border-radius: 10px;
+    &:hover {
+      text-decoration: none;
+      color: white;
+      background-color: $primary-color;
+    }
+  }
 }
