@@ -1,17 +1,6 @@
 <%= javascript_pack_tag 'restaurants' %>
 
 <div id="restaurants-index">
-  <div class='new-restaurant-container'>
-    <%= link_to new_ticket_path, class: 'btn btn-secondary' do %>
-      <i class='far fa-envelope'></i> Submit Feedback
-    <% end %>
-
-    <%= link_to new_restaurant_path, class: 'btn btn-primary' do %>
-      <i class='fas fa-plus'></i> Add restaurant
-    <% end %>
-
-  </div>
-
   <div id='restaurants-mount-point'></div>
 
   <div id="twitter-feed">
