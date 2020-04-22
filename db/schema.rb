@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_22_235224) do
+ActiveRecord::Schema.define(version: 2020_04_02_014727) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,12 @@ ActiveRecord::Schema.define(version: 2020_03_22_235224) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "phone"
     t.string "website"
+    t.string "pickup_url"
+    t.string "delivery_url"
+    t.string "skip_the_dishes_url"
+    t.string "uber_eats_url"
+    t.string "foodora_url"
+    t.string "door_dash_url"
     t.index ["restaurant_id"], name: "index_locations_on_restaurant_id"
   end
 

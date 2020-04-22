@@ -40,11 +40,17 @@ class LocationsController < ApplicationController
       params.require(:location).permit(:name,
                                        :address,
                                        :pickup,
+                                       :pickup_url,
                                        :delivery,
+                                       :delivery_url,
                                        :skip_the_dishes,
+                                       :skip_the_dishes_url, 
                                        :uber_eats,
+                                       :uber_eats_url,
                                        :foodora,
+                                       :foodora_url,
                                        :door_dash,
+                                       :door_dash_url,
                                        :phone,
                                        :website)
     end

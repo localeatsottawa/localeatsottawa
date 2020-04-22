@@ -1,0 +1,31 @@
+.component-pill{
+  display: inline-block;
+  background: $primary-color;
+  color: white;
+  padding: 2px 5px 2px 5px;
+  margin-bottom: 5px;
+  border-radius: 10px;
+  i{
+    margin-left: 5px;
+  }  
+  &.uber-eats{
+    background: $uber-green;
+  }
+  &.skip-the-dishes{
+    background: $skip-red;
+  }
+  &.door-dash{
+    background: $doordash-red;
+  }
+  &.foodora {
+    background: $foodora-purple;
+  }
+}
+
+a.component-pill{
+  &:hover {
+    text-decoration: none;
+    color: $primary-color;
+    background-color: $primary-color-dark-transparent;
+  }
+}
