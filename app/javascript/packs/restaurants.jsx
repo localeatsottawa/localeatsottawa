@@ -9,7 +9,7 @@ import Restaurant from '../components/restaurant';
 class Restaurants extends React.Component {
   state = {
     loadingRestaurants: true,
-    showFilters: true,
+    showFilters: false,
     filterPickup: true,
     filterDelivery: true,
     filterUberEats: true,
