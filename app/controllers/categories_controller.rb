@@ -2,6 +2,11 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource
 
   def index
+    binding.pry
+    respond_to do | format | 
+      format.html
+      format.json
+    end
   end
 
   def show

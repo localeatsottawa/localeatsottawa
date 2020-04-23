@@ -9,6 +9,7 @@ import Restaurant from '../components/restaurant';
 class Restaurants extends React.Component {
   state = {
     loadingRestaurants: true,
+    loadingCategories: true,
     showFilters: true,
     filterPickup: true,
     filterDelivery: true,
@@ -16,11 +17,25 @@ class Restaurants extends React.Component {
     filterSkipTheDishes: true,
     filterFoodora: true,
     filterDoorDash: true,
-    restaurants: []
+    restaurants: [],
+    categories: []
   }
 
   componentDidMount() {
     this.loadRestaurants();
+    this.loadCategories();
+  }
+
+  loadCategories = () => {
+    const data = {
+      //filter on featured categories
+      featured: true   
+    }
+
+    $.getJSON('/categories', data, (categories) => {
+      console.log('hello')
+      this.setState({categories, loadingCategories: false});
+    });
   }
 
   loadRestaurants = () => {
@@ -33,6 +48,7 @@ class Restaurants extends React.Component {
       filterSkipTheDishes: skip_the_dishes,
       filterFoodora: foodora,
       filterDoorDash: door_dash,
+      categoryId: category_id,
     } = this.state;
 
     const data = {
@@ -42,6 +58,7 @@ class Restaurants extends React.Component {
       skip_the_dishes,
       foodora,
       door_dash,
+      category_id,
     }
 
     $.getJSON('/restaurants', data, (restaurants) => {
@@ -66,9 +83,16 @@ class Restaurants extends React.Component {
     });
   }
 
+  setCategoryFilter = (category) => {
+    this.setState({
+      categoryId: category.id
+    }, this.loadRestaurants)
+  }
+
   render() {
     const { 
-      restaurants, 
+      restaurants,
+      categories, 
       loadingRestaurants, 
       showFilters,
       filterPickup,
@@ -81,6 +105,14 @@ class Restaurants extends React.Component {
     return (
       <div className='component-restaurants'>
         <div className='restaurant-categories-all'>
+        {categories.map((category) => {
+          return (
+          <a href='#' onClick={(event) => {
+            event.preventDefault();
+            this.setCategoryFilter(category);
+          }}>{category.name}</a>
+          );
+        })}
         <a href='' className=''>
               VIEW ALL
           </a>

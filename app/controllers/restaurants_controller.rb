@@ -29,6 +29,10 @@ class RestaurantsController < ApplicationController
       @restaurants = @restaurants.or(Restaurant.joins(:locations).where('locations.foodora = ?', true))
     end
 
+    if params[:category_id].present?
+      
+    end
+
 
     @restaurants = @restaurants.includes(:locations).alphabetical
 
