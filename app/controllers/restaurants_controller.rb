@@ -77,6 +77,7 @@ class RestaurantsController < ApplicationController
                                          :phone,
                                          :location,
                                          :website,
-                                         :phone)
+                                         :phone,
+                                         :category_id)
     end    
 end

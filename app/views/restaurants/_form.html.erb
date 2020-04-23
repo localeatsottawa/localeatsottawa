@@ -26,6 +26,11 @@
     <%= form.text_field :phone, :placeholder => "(613) 123-4567" %>
   </div>
 
+  <div class="field">
+    <%= form.label :category_id %>
+    <%= form.select :category_id, options_from_collection_for_select(Category.all, :id, :name, selected: @restaurant.category_id) %>
+  </div>
+
   <div class="actions">
     <%= form.submit 'Submit', class: 'btn btn-primary' %>
   </div>
