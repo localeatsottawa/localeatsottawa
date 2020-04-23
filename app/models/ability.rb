@@ -14,6 +14,7 @@ class Ability
       can [:read, :new, :create], Restaurant
       can [:read, :new, :create], Location
       can [:new, :create, :thank_you], Ticket
+      can :read, Category
     end
 
   end
