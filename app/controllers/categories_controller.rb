@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
   def index
     
     if params[:featured] == 'true'
-      #filter on only featured categories
+      @categories = @categories.where('featured = ?', true)
     end
     
     respond_to do | format | 
