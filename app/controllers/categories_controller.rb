@@ -2,7 +2,11 @@ class CategoriesController < ApplicationController
   load_and_authorize_resource
 
   def index
-    binding.pry
+    
+    if params[:featured] == 'true'
+      #filter on only featured categories
+    end
+    
     respond_to do | format | 
       format.html
       format.json

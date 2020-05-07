@@ -104,41 +104,15 @@ class Restaurants extends React.Component {
     } = this.state;
     return (
       <div className='component-restaurants'>
-        <div className='restaurant-categories-all'>
+        <div className='restaurant-categories'>
         {categories.map((category) => {
           return (
-          <a href='#' onClick={(event) => {
+          <a href='#' className='btn btn-category' onClick={(event) => {
             event.preventDefault();
             this.setCategoryFilter(category);
-          }}>{category.name}</a>
+          }}>{category.name} {category.emoji}</a>
           );
         })}
-        <a href='' className=''>
-              VIEW ALL
-          </a>
-        </div>
-        <div className='restaurant-categories'>
-          <a href='' className='btn btn-category'>
-              <i className=''></i> Chinese 🥢
-          </a>
-          <a href='' className='btn btn-category'>
-              <i className=''></i> Dessert 🍦
-          </a>
-          <a href='' className='btn btn-category'>
-              <i className=''></i> Italian 🍝
-          </a>
-          <a href='' className='btn btn-category'>
-              <i className=''></i> Japanese 🍣
-          </a>
-          <a href='' className='btn btn-category'>
-              <i className=''></i> Pizza 🍕
-          </a>
-          <a href='' className='btn btn-category'>
-              <i className=''></i> Pub 🍺
-          </a>
-          <a href='' className='btn btn-category'>
-              <i className=''></i> Vegetarian 🥗
-          </a>
         </div>
         <div className='restaurant-actions'>
           <div className="left-section">
