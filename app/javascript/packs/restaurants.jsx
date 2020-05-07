@@ -5,6 +5,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Restaurant from '../components/restaurant';
+import { any } from 'prop-types';
 
 class Restaurants extends React.Component {
   state = {
@@ -18,7 +19,8 @@ class Restaurants extends React.Component {
     filterFoodora: true,
     filterDoorDash: true,
     restaurants: [],
-    categories: []
+    categories: [],
+    selectedCategory: any,
   }
 
   componentDidMount() {
@@ -85,7 +87,8 @@ class Restaurants extends React.Component {
 
   setCategoryFilter = (category) => {
     this.setState({
-      categoryId: category.id
+      categoryId: category.id,
+      selectedCategory: category
     }, this.loadRestaurants)
   }
 
@@ -101,17 +104,28 @@ class Restaurants extends React.Component {
       filterSkipTheDishes,
       filterFoodora,
       filterDoorDash,
+      selectedCategory,
     } = this.state;
+    
     return (
       <div className='component-restaurants'>
         <div className='restaurant-categories'>
         {categories.map((category) => {
-          return (
-          <a href='#' className='btn btn-category' onClick={(event) => {
-            event.preventDefault();
-            this.setCategoryFilter(category);
-          }}>{category.name} {category.emoji}</a>
-          );
+          if (category == selectedCategory) {
+            return (
+              <a href='#' className='btn btn-category btn-selected' onClick={(event) => {
+                event.preventDefault();
+                this.setCategoryFilter(category);
+              }}>{category.name} {category.emoji}</a>
+              );
+          } else {
+            return (
+            <a href='#' className='btn btn-category' onClick={(event) => {
+              event.preventDefault();
+              this.setCategoryFilter(category);
+            }}>{category.name} {category.emoji}</a>
+            );
+          }
         })}
         </div>
         <div className='restaurant-actions'>
