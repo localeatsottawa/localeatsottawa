@@ -15,7 +15,5 @@ child(:locations) do
              :door_dash,
              :door_dash_url,
              :pickup,
-             :pickup_url,
-             :foodora,
-             :foodora_url
+             :pickup_url
 end

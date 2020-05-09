@@ -14,7 +14,6 @@ class Restaurants extends React.Component {
     filterDelivery: true,
     filterUberEats: true,
     filterSkipTheDishes: true,
-    filterFoodora: true,
     filterDoorDash: true,
     restaurants: []
   }
@@ -31,7 +30,6 @@ class Restaurants extends React.Component {
       filterDelivery: delivery,
       filterUberEats: uber_eats,
       filterSkipTheDishes: skip_the_dishes,
-      filterFoodora: foodora,
       filterDoorDash: door_dash,
     } = this.state;
 
@@ -40,7 +38,6 @@ class Restaurants extends React.Component {
       delivery,
       uber_eats,
       skip_the_dishes,
-      foodora,
       door_dash,
     }
 
@@ -75,7 +72,6 @@ class Restaurants extends React.Component {
       filterDelivery,
       filterUberEats,
       filterSkipTheDishes,
-      filterFoodora,
       filterDoorDash,
     } = this.state;
     return (
@@ -125,15 +121,6 @@ class Restaurants extends React.Component {
                       checked={filterSkipTheDishes}
                       onChange={this.handleInputChange} />
                     <label className='checkbox-label' htmlFor='filter-skip-the-dishes'>Skip the Dishes</label>
-                  </div>
-                  <div className='field'>
-                    <input
-                      id='filter-foodora'
-                      name="filterFoodora"
-                      type="checkbox"
-                      checked={filterFoodora}
-                      onChange={this.handleInputChange} />
-                    <label className='checkbox-label' htmlFor='filter-foodora'>Foodora</label>
                   </div>
                   <div className='field'>
                     <input

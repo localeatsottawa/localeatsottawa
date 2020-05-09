@@ -15,9 +15,6 @@ class Location extends React.Component {
     else if (option == "uber_eats") {
       return "uber-eats";
     }
-    else if (option == "foodora") {
-      return "foodora";
-    }
     else if (option == "door_dash") {
       return "door-dash";
     }
@@ -36,9 +33,6 @@ class Location extends React.Component {
     else if (option == "uber_eats") {
       return "Uber Eats";
     }
-    else if (option == "foodora") {
-      return "Foodora";
-    }
     else if (option == "door_dash") {
       return "Door Dash";
     }
@@ -46,7 +40,7 @@ class Location extends React.Component {
   
   deliveryOptions = () => {
     const { location } = this.props;
-    return ["delivery", "pickup", "skip_the_dishes", "uber_eats", "foodora", "door_dash"].map((option) => {
+    return ["delivery", "pickup", "skip_the_dishes", "uber_eats", "door_dash"].map((option) => {
       return (
         location[option] && 
         <Pill className={this.optionToClassName(option)} text={this.friendlyDeliveryOptionName(option)} url={location[option+"_url"]} />
