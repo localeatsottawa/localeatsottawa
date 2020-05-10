@@ -35,7 +35,6 @@ class Restaurants extends React.Component {
     }
 
     $.getJSON('/categories', data, (categories) => {
-      console.log('hello')
       this.setState({categories, loadingCategories: false});
     });
   }
@@ -110,7 +109,8 @@ class Restaurants extends React.Component {
     return (
       <div className='component-restaurants'>
         <div className='restaurant-categories'>
-        {categories.map((category) => {
+        {categories.sort((a, b) => a.name.localeCompare(b.name, undefined, { }))
+          .map((category) => {
           if (category == selectedCategory) {
             return (
               <a href='#' className='btn btn-category btn-selected' onClick={(event) => {
