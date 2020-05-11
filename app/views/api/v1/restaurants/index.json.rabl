@@ -10,6 +10,5 @@ child(:locations) do
              :skip_the_dishes,
              :uber_eats,
              :door_dash,
-             :pickup,
-             :foodora
+             :pickup
 end
