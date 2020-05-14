@@ -6,12 +6,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Restaurant from '../components/restaurant';
 import { any } from 'prop-types';
+import CategoryFilterButton from '../components/category_filter_button';
 
 class Restaurants extends React.Component {
   state = {
     loadingRestaurants: true,
     loadingCategories: true,
-    showFilters: true,
+    showFilters: false,
     filterPickup: true,
     filterDelivery: true,
     filterUberEats: true,
@@ -20,7 +21,6 @@ class Restaurants extends React.Component {
     filterDoorDash: true,
     restaurants: [],
     categories: [],
-    selectedCategory: any,
   }
 
   componentDidMount() {
@@ -30,7 +30,6 @@ class Restaurants extends React.Component {
 
   loadCategories = () => {
     const data = {
-      //filter on featured categories
       featured: true   
     }
 
@@ -91,6 +90,11 @@ class Restaurants extends React.Component {
     }, this.loadRestaurants)
   }
 
+  categoriesSortedByName = () => {
+    const { categories } = this.state;
+    return categories.sort((a, b) => a.name.localeCompare(b.name, undefined, { }));
+  }
+
   render() {
     const { 
       restaurants,
@@ -109,23 +113,15 @@ class Restaurants extends React.Component {
     return (
       <div className='component-restaurants'>
         <div className='restaurant-categories'>
-        {categories.sort((a, b) => a.name.localeCompare(b.name, undefined, { }))
-          .map((category) => {
-          if (category == selectedCategory) {
-            return (
-              <a href='#' className='btn btn-category btn-selected' onClick={(event) => {
-                event.preventDefault();
-                this.setCategoryFilter(category);
-              }}>{category.name} {category.emoji}</a>
-              );
-          } else {
-            return (
-            <a href='#' className='btn btn-category' onClick={(event) => {
-              event.preventDefault();
-              this.setCategoryFilter(category);
-            }}>{category.name} {category.emoji}</a>
+          {this.categoriesSortedByName().map((category) => {
+          return (
+            <CategoryFilterButton 
+              key={category.id}
+              onClick={this.setCategoryFilter} 
+              category={category}
+              selectedCategory={selectedCategory}
+            />
             );
-          }
         })}
         </div>
         <div className='restaurant-actions'>
