@@ -5,21 +5,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Restaurant from '../components/restaurant';
+import { any } from 'prop-types';
+import CategoryFilterButton from '../components/category_filter_button';
 
 class Restaurants extends React.Component {
   state = {
     loadingRestaurants: true,
+    loadingCategories: true,
     showFilters: false,
     filterPickup: true,
     filterDelivery: true,
     filterUberEats: true,
     filterSkipTheDishes: true,
     filterDoorDash: true,
-    restaurants: []
+    restaurants: [],
+    categories: [],
   }
 
   componentDidMount() {
     this.loadRestaurants();
+    this.loadCategories();
+  }
+
+  loadCategories = () => {
+    const data = {
+      featured: true   
+    }
+
+    $.getJSON('/categories', data, (categories) => {
+      this.setState({categories, loadingCategories: false});
+    });
   }
 
   loadRestaurants = () => {
@@ -31,6 +46,7 @@ class Restaurants extends React.Component {
       filterUberEats: uber_eats,
       filterSkipTheDishes: skip_the_dishes,
       filterDoorDash: door_dash,
+      categoryId: category_id,
     } = this.state;
 
     const data = {
@@ -39,6 +55,7 @@ class Restaurants extends React.Component {
       uber_eats,
       skip_the_dishes,
       door_dash,
+      category_id,
     }
 
     $.getJSON('/restaurants', data, (restaurants) => {
@@ -63,9 +80,22 @@ class Restaurants extends React.Component {
     });
   }
 
+  setCategoryFilter = (category) => {
+    this.setState({
+      categoryId: category.id,
+      selectedCategory: category
+    }, this.loadRestaurants)
+  }
+
+  categoriesSortedByName = () => {
+    const { categories } = this.state;
+    return categories.sort((a, b) => a.name.localeCompare(b.name, undefined, { }));
+  }
+
   render() {
     const { 
-      restaurants, 
+      restaurants,
+      categories, 
       loadingRestaurants, 
       showFilters,
       filterPickup,
@@ -73,9 +103,23 @@ class Restaurants extends React.Component {
       filterUberEats,
       filterSkipTheDishes,
       filterDoorDash,
+      selectedCategory,
     } = this.state;
+    
     return (
       <div className='component-restaurants'>
+        <div className='restaurant-categories'>
+          {this.categoriesSortedByName().map((category) => {
+          return (
+            <CategoryFilterButton 
+              key={category.id}
+              onClick={this.setCategoryFilter} 
+              category={category}
+              selectedCategory={selectedCategory}
+            />
+            );
+        })}
+        </div>
         <div className='restaurant-actions'>
           <div className="left-section">
             <a href='#' className='btn btn-secondary' onClick={this.toggleFilters}>
