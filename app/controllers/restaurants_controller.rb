@@ -1,5 +1,4 @@
 class RestaurantsController < ApplicationController
-  require 'csv'
   load_and_authorize_resource
 
   def index
@@ -75,11 +74,13 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path, notice: 'Restaurant was successfully destroyed.'
   end
 
-  def import(file)
-    CSV.foreach(file.path, headers:true) do |row|
-      update row.to_hash
+  def import
+    if request.get?
+      Rails.logger.info("Import get request")
+    else
+      Restaurant.import(params[:file])
+      redirect_to restaurants_path, notice: 'Restaurants data updated from CSV!'
     end
-    redirect_to restaurants_path, notice: 'Restaurants data updated from CSV!'
   end
 
   private

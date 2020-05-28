@@ -1,4 +1,5 @@
 class Restaurant < ApplicationRecord
+  require 'csv'
   before_save :ensure_website_has_protocol
   
   has_many :locations, dependent: :destroy
@@ -19,6 +20,20 @@ class Restaurant < ApplicationRecord
   def category_id=(category_id)
     categories.clear
     categories << Category.find(category_id)  
+  end
+
+  def self.import(file)
+    CSV.foreach(file.path, headers:true) do |row|
+      id = row['id']
+      restaurant = Restaurant.find_by(id: id)
+      if restaurant.nil?
+        new_restaurant = row.to_hash
+        new_restaurant.delete("id")
+        Restaurant.create new_restaurant        
+      else
+        restaurant.update row.to_hash
+      end
+    end
   end
   
   private

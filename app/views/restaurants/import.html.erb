@@ -1,0 +1,6 @@
+<h1>Import Restaurants</h1>
+<h4>Update restaurants from CSV</h4>
+<%= form_tag import_restaurants_path, multipart: true, remote: false do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Submit" %>
+<% end %>

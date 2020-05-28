@@ -5,10 +5,11 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :restaurants do
-    resources :locations
     collection do 
+      get :import
       post :import
     end
+    resources :locations
   end
   
   resources :tickets do
