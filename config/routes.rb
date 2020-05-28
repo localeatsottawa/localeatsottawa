@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   
   resources :restaurants do
     resources :locations
+    collection do 
+      post :import
+    end
   end
   
   resources :tickets do

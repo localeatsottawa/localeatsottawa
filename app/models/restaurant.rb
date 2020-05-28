@@ -21,7 +21,6 @@ class Restaurant < ApplicationRecord
     categories << Category.find(category_id)  
   end
   
-  
   private
   
     def ensure_website_has_protocol

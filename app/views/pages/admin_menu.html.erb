@@ -1,5 +1,11 @@
 <h1>Admin Menu</h1>
 
 <%= link_to 'Restaurants', restaurants_path %><br />
+<h4>Update restaurants from CSV</h4>
+<%= form_tag import_restaurants_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Submit" %>
+<% end %>
+<br>
 <%= link_to 'Categories', categories_path %><br />
 <%= link_to 'Tickets', tickets_path %>
