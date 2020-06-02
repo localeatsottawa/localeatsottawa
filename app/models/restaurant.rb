@@ -22,16 +22,26 @@ class Restaurant < ApplicationRecord
     categories << Category.find(category_id)  
   end
 
+  def self.find_categories_by_name(category_name)
+    Category.where(name: category_name)
+  end
+
   def self.import(file)
     CSV.foreach(file.path, headers:true) do |row|
       id = row['id']
+      restaurant_from_csv = row.to_hash
+      restaurant_from_csv.delete("id")
+      categories_result = find_categories_by_name(row.values_at("category"))
+      restaurant_from_csv.delete("category")
       restaurant = Restaurant.find_by(id: id)
       if restaurant.nil?
-        new_restaurant = row.to_hash
-        new_restaurant.delete("id")
-        Restaurant.create new_restaurant        
+        new_restaurant = Restaurant.new
+        new_restaurant = restaurant_from_csv        
+        new_restaurant.categories = categories_result
+        new_restaurant.save
       else
-        restaurant.update row.to_hash
+        restaurant.update restaurant_from_csv
+        restaurant.categories = categories_result
       end
     end
   end
