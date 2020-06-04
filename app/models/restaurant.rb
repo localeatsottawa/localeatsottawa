@@ -28,10 +28,10 @@ class Restaurant < ApplicationRecord
   end
 
   def self.import(file)
-    attributes_whitelist = ["name", "phone", "website", "category"]
+    attributes_whitelist = ["name", "phone", "website"]
     CSV.foreach(file.path, headers:true) do |row|
       id = row['id']
-      category = Category.find_or_create_by(name: row.values_at('category'))
+      category = Category.find_or_create_by(name: row['category'])
       restaurant_attributes = row.to_hash.keep_if {|key,value| attributes_whitelist.include? key }
       restaurant = Restaurant.find_by(id: id)
       if restaurant.nil?
