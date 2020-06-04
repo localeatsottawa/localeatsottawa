@@ -35,7 +35,7 @@ class Restaurant < ApplicationRecord
       restaurant_attributes = row.to_hash.keep_if {|key,value| attributes_whitelist.include? key }
       restaurant = Restaurant.find_by(id: id)
       if restaurant.nil?
-        new_restaurant = Restaurant.new restaurant_attributes        
+        new_restaurant = Restaurant.new(restaurant_attributes)        
         new_restaurant.category = category
         new_restaurant.save
       else
