@@ -74,6 +74,13 @@ class RestaurantsController < ApplicationController
     redirect_to restaurants_path, notice: 'Restaurant was successfully destroyed.'
   end
 
+  def import
+    if request.post?
+      Restaurant.import(params[:file])
+      redirect_to restaurants_path, notice: 'Restaurants data updated from CSV!'
+    end
+  end
+
   private
     def restaurant_params
       params.require(:restaurant).permit(:name,

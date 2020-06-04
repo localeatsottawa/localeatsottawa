@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :restaurants do
+    collection do 
+      get :import
+      post :import
+    end
     resources :locations
   end
   
