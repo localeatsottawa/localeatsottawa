@@ -75,9 +75,7 @@ class RestaurantsController < ApplicationController
   end
 
   def import
-    if request.get?
-      Rails.logger.info("Import get request")
-    else
+    if request.post?
       Restaurant.import(params[:file])
       redirect_to restaurants_path, notice: 'Restaurants data updated from CSV!'
     end

@@ -12,6 +12,11 @@ class Restaurant < ApplicationRecord
   def category
     categories.first
   end
+
+  def category=(category)
+    categories.clear
+    categories << category
+  end
   
   def category_id
     category.try(:id)
@@ -22,26 +27,20 @@ class Restaurant < ApplicationRecord
     categories << Category.find(category_id)  
   end
 
-  def self.find_categories_by_name(category_name)
-    Category.where(name: category_name)
-  end
-
   def self.import(file)
+    attributes_whitelist = ["name", "phone", "website", "category"]
     CSV.foreach(file.path, headers:true) do |row|
       id = row['id']
-      restaurant_from_csv = row.to_hash
-      restaurant_from_csv.delete("id")
-      categories_result = find_categories_by_name(row.values_at("category"))
-      restaurant_from_csv.delete("category")
+      category = Category.find_or_create_by(name: row.values_at('category'))
+      restaurant_attributes = row.to_hash.keep_if {|key,value| attributes_whitelist.include? key }
       restaurant = Restaurant.find_by(id: id)
       if restaurant.nil?
-        new_restaurant = Restaurant.new
-        new_restaurant = restaurant_from_csv        
-        new_restaurant.categories = categories_result
+        new_restaurant = Restaurant.new restaurant_attributes        
+        new_restaurant.category = category
         new_restaurant.save
       else
-        restaurant.update restaurant_from_csv
-        restaurant.categories = categories_result
+        restaurant.update restaurant_attributes
+        restaurant.category = category
       end
     end
   end
