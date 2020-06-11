@@ -137,7 +137,7 @@ class Restaurants extends React.Component {
                       type="checkbox"
                       checked={filterPickup}
                       onChange={this.handleInputChange} />
-                    <label className='checkbox-label' htmlFor='filter-pickup'>Pickup</label>
+                    <label className='checkbox-label' htmlFor='filter-pickup'>Takeout</label>
                   </div>
                   <div className='field'>
                     <input
