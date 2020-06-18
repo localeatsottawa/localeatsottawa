@@ -1,6 +1,6 @@
 class LocationsController < ApplicationController
-  load_and_authorize_resource :restaurant
-  load_and_authorize_resource through: :restaurant
+  load_and_authorize_resource :restaurant, except: [:import]
+  load_and_authorize_resource through: :restaurant, except: [:import]
 
   def index
   end
@@ -33,6 +33,14 @@ class LocationsController < ApplicationController
   def destroy
     @location.destroy
     redirect_to restaurants_path, notice: 'Location was successfully destroyed.'
+  end
+
+  def import
+    authorize! :import, :locations
+    if request.post?
+      Location.import(params[:file])
+      redirect_to restaurants_path, notice: 'Locations data updated from CSV!'
+    end
   end
 
   private
