@@ -1,5 +1,6 @@
 class Restaurant < ApplicationRecord
   require 'csv'
+  include UrlHelper
   before_save :ensure_website_has_protocol
   
   has_many :locations, dependent: :destroy
@@ -48,8 +49,6 @@ class Restaurant < ApplicationRecord
   private
   
     def ensure_website_has_protocol
-      if ( self.website !~ /^https?:\/\// && !self.website.to_s.strip.empty? )
-        self.website = "http://" + self.website
-      end
+      self.website = self.ensure_url_has_protocol(self.website)
     end
 end
