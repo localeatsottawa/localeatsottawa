@@ -19,8 +19,7 @@ class Location < ApplicationRecord
       if location.nil?
         restaurant_name = row["restaurant_name"]
         restaurant = Restaurant.find_by(name: restaurant_name)
-        if restaurant.nil?
-        else
+        if restaurant
           new_location = Location.new(location_attributes)
           new_location.restaurant = restaurant
           new_location.save
