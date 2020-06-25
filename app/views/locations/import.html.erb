@@ -1,0 +1,6 @@
+<h1>Import Locations</h1>
+<p>Update locations from CSV</p>
+<%= form_tag locations_import_path, multipart: true, remote: false do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Submit" %>
+<% end %>

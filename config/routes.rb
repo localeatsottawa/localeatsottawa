@@ -20,6 +20,9 @@ Rails.application.routes.draw do
 
   get '/admin_menu' => 'pages#admin_menu'
   
+  get '/locations/import' => 'locations#import'
+  post '/locations/import' => 'locations#import'
+  
   namespace :api do
     namespace :v1 do
       resources :restaurants, only: [:index]
