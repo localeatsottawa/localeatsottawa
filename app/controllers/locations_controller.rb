@@ -20,7 +20,7 @@ class LocationsController < ApplicationController
     else
       render :new
     end
-  end
+  end 
 
   def update
     if @location.update(location_params)
