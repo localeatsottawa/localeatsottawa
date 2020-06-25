@@ -3,5 +3,7 @@ module UrlHelper
     if ( url !~ /^https?:\/\// && !url.to_s.strip.empty? )
       url = "http://" + url
     end
+
+    url
   end
 end
