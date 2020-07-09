@@ -2,6 +2,10 @@ collection @restaurants
 
 attributes :id, :name, :phone, :website
 
+child(:category) do
+  attributes :name, :emoji
+end
+
 child(:locations) do
   attributes :id, 
              :name,

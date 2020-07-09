@@ -8,6 +8,12 @@ class Restaurant extends React.Component {
       <div className='component-restaurant card'>
         <div className='header'>
           <h2>{restaurant.name}</h2>
+          {
+            restaurant.category &&
+            <div className='category'>
+              {restaurant.category.name} {restaurant.category.emoji}
+            </div>
+          }
           <div className='contact-details'>
             {
               restaurant.website &&

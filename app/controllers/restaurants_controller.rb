@@ -34,6 +34,7 @@ class RestaurantsController < ApplicationController
     end
 
     @restaurants = @restaurants.includes(:locations).alphabetical
+    @restaurants = @restaurants.includes(:categories)
 
     respond_to do |format|
       format.html { @landing_header = true }
