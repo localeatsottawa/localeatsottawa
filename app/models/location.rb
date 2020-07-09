@@ -10,8 +10,8 @@ class Location < ApplicationRecord
   before_save :ensure_links_have_protocol
 
   def self.import(file)
-    attributes_whitelist = ["address", "pickup", "delivery", "skip_the_dishes", 
-    "door_dash", "phone", "website", "pickup_url", "delivery_url", "skip_the_dishes_url", "door_dash_url"]
+    attributes_whitelist = ["address", "pickup", "delivery", "skip_the_dishes", "uber_eats", 
+    "door_dash", "phone", "website", "pickup_url", "delivery_url", "skip_the_dishes_url", "uber_eats_url", "door_dash_url"]
     CSV.foreach(file.path, headers:true) do |row|
       id = row['id']
       location_attributes = row.to_hash.keep_if {|key,value| attributes_whitelist.include? key}
