@@ -11,6 +11,13 @@
       font-weight: 500;
     }
 
+    .category {
+      font-size: 13px;
+      display: flex;
+      flex-direction: row;
+      color: $gray;
+    }
+
     .contact-details {
       font-size: 13px;
       display: flex;
