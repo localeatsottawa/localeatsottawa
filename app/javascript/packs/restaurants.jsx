@@ -5,7 +5,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Restaurant from '../components/restaurant';
-import { any } from 'prop-types';
 import CategoryFilterButton from '../components/category_filter_button';
 
 class Restaurants extends React.Component {
