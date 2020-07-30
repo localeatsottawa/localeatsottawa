@@ -25,6 +25,9 @@ class Restaurants extends React.Component {
   componentDidMount() {
     this.parseUrlAndLoad();
     this.loadCategories();
+    window.onpopstate = (event) => {
+      this.parseUrlAndLoad();
+    }
   }
   
   parseUrlAndLoad = () => {
@@ -103,6 +106,11 @@ class Restaurants extends React.Component {
     return categories.sort((a, b) => a.name.localeCompare(b.name, undefined, { }));
   }
 
+  categoryFilterButtonClicked = (categoryId) => {
+    history.pushState(null, null, `?category_id=${categoryId}`)
+    this.setCategoryFilter(categoryId);
+  }
+
   render() {
     const { 
       restaurants,
@@ -124,7 +132,7 @@ class Restaurants extends React.Component {
           return (
             <CategoryFilterButton 
               key={category.id}
-              onClick={this.setCategoryFilter} 
+              onClick={this.categoryFilterButtonClicked} 
               category={category}
               selectedCategoryId={selectedCategoryId}
             />
