@@ -6,6 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Restaurant from '../components/restaurant';
 import CategoryFilterButton from '../components/category_filter_button';
+import QueryString from 'query-string';
 
 class Restaurants extends React.Component {
   state = {
@@ -22,19 +23,10 @@ class Restaurants extends React.Component {
   }
 
   componentDidMount() {
+    //this.parseUrl();
     this.loadRestaurants();
     this.loadCategories();
-  }
-
-  loadCategories = () => {
-    const data = {
-      featured: true   
-    }
-
-    $.getJSON('/categories', data, (categories) => {
-      this.setState({categories, loadingCategories: false});
-    });
-  }
+  }  
 
   loadRestaurants = () => {
     this.setState({ loadingRestaurants: true, showFilters: false });
@@ -45,7 +37,7 @@ class Restaurants extends React.Component {
       filterUberEats: uber_eats,
       filterSkipTheDishes: skip_the_dishes,
       filterDoorDash: door_dash,
-      categoryId: category_id,
+      selectedCategoryId: category_id,
     } = this.state;
 
     const data = {
@@ -59,6 +51,16 @@ class Restaurants extends React.Component {
 
     $.getJSON('/restaurants', data, (restaurants) => {
       this.setState({restaurants, loadingRestaurants: false});
+    });
+  }
+
+  loadCategories = () => {
+    const data = {
+      featured: true   
+    }
+
+    $.getJSON('/categories', data, (categories) => {
+      this.setState({categories, loadingCategories: false});
     });
   }
 
@@ -79,10 +81,9 @@ class Restaurants extends React.Component {
     });
   }
 
-  setCategoryFilter = (category) => {
+  setCategoryFilter = (categoryId) => {
     this.setState({
-      categoryId: category.id,
-      selectedCategory: category
+      selectedCategoryId: categoryId
     }, this.loadRestaurants)
   }
 
@@ -102,7 +103,7 @@ class Restaurants extends React.Component {
       filterUberEats,
       filterSkipTheDishes,
       filterDoorDash,
-      selectedCategory,
+      selectedCategoryId,
     } = this.state;
     
     return (
@@ -114,7 +115,7 @@ class Restaurants extends React.Component {
               key={category.id}
               onClick={this.setCategoryFilter} 
               category={category}
-              selectedCategory={selectedCategory}
+              selectedCategoryId={selectedCategoryId}
             />
             );
         })}
