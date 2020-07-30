@@ -23,10 +23,21 @@ class Restaurants extends React.Component {
   }
 
   componentDidMount() {
-    //this.parseUrl();
-    this.loadRestaurants();
+    this.parseUrlAndLoad();
     this.loadCategories();
-  }  
+  }
+  
+  parseUrlAndLoad = () => {
+    const parsedUrl = QueryString.parse(location.search);
+    console.log(parsedUrl);
+    if(parsedUrl.category_id) {
+      const categoryId = parsedUrl.category_id;
+      this.setCategoryFilter(categoryId);
+    }
+    else {
+      this.loadRestaurants();
+    }
+  }
 
   loadRestaurants = () => {
     this.setState({ loadingRestaurants: true, showFilters: false });

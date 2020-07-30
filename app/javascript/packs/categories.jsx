@@ -28,7 +28,8 @@ class Categories extends React.Component {
   }
 
   goToCategory = (category) => {
-    console.log(category)
+    console.log(category);
+    window.location.href = `/?category_id=${category}`;
   }
 
   render() {
