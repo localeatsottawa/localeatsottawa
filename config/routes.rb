@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :categories
+  resources :categories, only: [:index]
   root 'restaurants#index'
   
   devise_for :users
@@ -22,6 +22,10 @@ Rails.application.routes.draw do
   
   get '/locations/import' => 'locations#import'
   post '/locations/import' => 'locations#import'
+  
+  namespace :admin do
+    resources :categories
+  end
   
   namespace :api do
     namespace :v1 do

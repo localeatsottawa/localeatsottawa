@@ -13,18 +13,15 @@ class Categories extends React.Component {
   }
 
   loadCategories = () => {
-    const data = {
-    }
-
-    $.getJSON('/categories', data, (categories) => {
+    $.getJSON('/categories', (categories) => {
       this.setState({categories, loadingCategories: false});
     });
   }
 
   categoriesSortedByName = () => {
     const { categories } = this.state;
-    //return categories.sort((a, b) => a.name.localeCompare(b.name, undefined, { }));
-    return categories
+    return categories.sort((a, b) => a.name.localeCompare(b.name, undefined, { }));
+    //return categories
   }
 
   goToCategory = (category) => {
@@ -68,34 +65,3 @@ document.addEventListener('DOMContentLoaded', () => {
     )
   }
 })
-
-
-/* <h1>Categories</h1>
-
-<table class='resource-table'>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Emoji</th>
-      <th>Featured</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @categories.each do |category| %>
-      <tr>
-        <td><%= category.name %></td>
-        <td><%= category.emoji %></td>
-        <td><%= category.featured %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Category', new_category_path, class: 'btn btn-primary' %></br> */
