@@ -21,11 +21,9 @@ class Categories extends React.Component {
   categoriesSortedByName = () => {
     const { categories } = this.state;
     return categories.sort((a, b) => a.name.localeCompare(b.name, undefined, { }));
-    //return categories
   }
 
   goToCategory = (category) => {
-    console.log(category);
     window.location.href = `/?category_id=${category}`;
   }
 
