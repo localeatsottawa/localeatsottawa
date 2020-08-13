@@ -138,6 +138,7 @@ class Restaurants extends React.Component {
             />
             );
         })}
+          <a href={`/categories`}>View all</a>
         </div>
         <div className='restaurant-actions'>
           <div className="left-section">
