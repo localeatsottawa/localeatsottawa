@@ -24,7 +24,6 @@ class Restaurants extends React.Component {
 
   componentDidMount() {
     this.parseUrlAndLoad();
-    this.loadCategories();
     window.onpopstate = (event) => {
       this.parseUrlAndLoad();
     }
@@ -32,13 +31,13 @@ class Restaurants extends React.Component {
   
   parseUrlAndLoad = () => {
     const parsedUrl = QueryString.parse(location.search);
-    console.log(parsedUrl);
     if(parsedUrl.category_id) {
       const categoryId = parsedUrl.category_id;
-      this.setCategoryFilter(categoryId);
+      this.setCategoryFilter(categoryId, true);
     }
     else {
       this.loadRestaurants();
+      this.loadCategories();
     }
   }
 
@@ -69,8 +68,10 @@ class Restaurants extends React.Component {
   }
 
   loadCategories = () => {
+    const {selectedCategoryId}=this.state;
     const data = {
-      featured: true   
+      featured: true,
+      selected_category_id: selectedCategoryId   
     }
 
     $.getJSON('/categories', data, (categories) => {
@@ -95,10 +96,15 @@ class Restaurants extends React.Component {
     });
   }
 
-  setCategoryFilter = (categoryId) => {
+  setCategoryFilter = (categoryId, refreshCategories) => {
     this.setState({
       selectedCategoryId: categoryId
-    }, this.loadRestaurants)
+    }, () => {
+      this.loadRestaurants();
+      if (refreshCategories) {
+        this.loadCategories();
+      }
+    })
   }
 
   categoriesSortedByName = () => {
@@ -108,7 +114,7 @@ class Restaurants extends React.Component {
 
   categoryFilterButtonClicked = (categoryId) => {
     history.pushState(null, null, `?category_id=${categoryId}`)
-    this.setCategoryFilter(categoryId);
+    this.setCategoryFilter(categoryId, false);
   }
 
   render() {
