@@ -8,15 +8,15 @@ class CategoryFilterButton extends React.Component {
     const { onClick, category } = this.props;
 
     if(typeof onClick == 'function') {
-      onClick(category);
+      onClick(category.id);
     }
   }
 
   render() {
-    const { category, selectedCategory } = this.props;
+    const { category, selectedCategoryId } = this.props;
     return (
       <a href='#' 
-        className={`btn btn-category ${(category == selectedCategory) ? 'btn-selected' : ''}`} 
+        className={`btn btn-category ${(category.id == selectedCategoryId) ? 'btn-selected' : ''}`} 
         onClick={this.handleButtonClick}>{category.name} {category.emoji}
       </a>
     )

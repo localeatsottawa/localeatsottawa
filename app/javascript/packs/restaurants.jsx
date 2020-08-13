@@ -5,8 +5,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Restaurant from '../components/restaurant';
-import { any } from 'prop-types';
 import CategoryFilterButton from '../components/category_filter_button';
+import QueryString from 'query-string';
 
 class Restaurants extends React.Component {
   state = {
@@ -23,18 +23,22 @@ class Restaurants extends React.Component {
   }
 
   componentDidMount() {
-    this.loadRestaurants();
-    this.loadCategories();
-  }
-
-  loadCategories = () => {
-    const data = {
-      featured: true   
+    this.parseUrlAndLoad();
+    window.onpopstate = (event) => {
+      this.parseUrlAndLoad();
     }
-
-    $.getJSON('/categories', data, (categories) => {
-      this.setState({categories, loadingCategories: false});
-    });
+  }
+  
+  parseUrlAndLoad = () => {
+    const parsedUrl = QueryString.parse(location.search);
+    if(parsedUrl.category_id) {
+      const categoryId = parsedUrl.category_id;
+      this.setCategoryFilter(categoryId, true);
+    }
+    else {
+      this.loadRestaurants();
+      this.loadCategories();
+    }
   }
 
   loadRestaurants = () => {
@@ -46,7 +50,7 @@ class Restaurants extends React.Component {
       filterUberEats: uber_eats,
       filterSkipTheDishes: skip_the_dishes,
       filterDoorDash: door_dash,
-      categoryId: category_id,
+      selectedCategoryId: category_id,
     } = this.state;
 
     const data = {
@@ -60,6 +64,18 @@ class Restaurants extends React.Component {
 
     $.getJSON('/restaurants', data, (restaurants) => {
       this.setState({restaurants, loadingRestaurants: false});
+    });
+  }
+
+  loadCategories = () => {
+    const {selectedCategoryId}=this.state;
+    const data = {
+      featured: true,
+      selected_category_id: selectedCategoryId   
+    }
+
+    $.getJSON('/categories', data, (categories) => {
+      this.setState({categories, loadingCategories: false});
     });
   }
 
@@ -80,16 +96,25 @@ class Restaurants extends React.Component {
     });
   }
 
-  setCategoryFilter = (category) => {
+  setCategoryFilter = (categoryId, refreshCategories) => {
     this.setState({
-      categoryId: category.id,
-      selectedCategory: category
-    }, this.loadRestaurants)
+      selectedCategoryId: categoryId
+    }, () => {
+      this.loadRestaurants();
+      if (refreshCategories) {
+        this.loadCategories();
+      }
+    })
   }
 
   categoriesSortedByName = () => {
     const { categories } = this.state;
     return categories.sort((a, b) => a.name.localeCompare(b.name, undefined, { }));
+  }
+
+  categoryFilterButtonClicked = (categoryId) => {
+    history.pushState(null, null, `?category_id=${categoryId}`)
+    this.setCategoryFilter(categoryId, false);
   }
 
   render() {
@@ -103,7 +128,7 @@ class Restaurants extends React.Component {
       filterUberEats,
       filterSkipTheDishes,
       filterDoorDash,
-      selectedCategory,
+      selectedCategoryId,
     } = this.state;
     
     return (
@@ -113,12 +138,13 @@ class Restaurants extends React.Component {
           return (
             <CategoryFilterButton 
               key={category.id}
-              onClick={this.setCategoryFilter} 
+              onClick={this.categoryFilterButtonClicked} 
               category={category}
-              selectedCategory={selectedCategory}
+              selectedCategoryId={selectedCategoryId}
             />
             );
         })}
+          <a href={`/categories`}>View all</a>
         </div>
         <div className='restaurant-actions'>
           <div className="left-section">
