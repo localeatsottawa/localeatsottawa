@@ -6,8 +6,17 @@ class Location < ApplicationRecord
   belongs_to :restaurant
 
   validates :address, presence: true, uniqueness: true
+  validates :pickup, presence: true, unless: :deliver_options_selected?
+  validates :delivery, presence: true, unless: :deliver_options_selected?
+  validates :skip_the_dishes, presence: true, unless: :deliver_options_selected?
+  validates :uber_eats, presence: true, unless: :deliver_options_selected?
+  validates :door_dash, presence: true, unless: :deliver_options_selected?
 
   before_save :ensure_links_have_protocol
+
+  def deliver_options_selected?
+    pickup.present? || delivery.present? || skip_the_dishes.present? || uber_eats.present? || door_dash.present?
+  end
 
   def self.import(file)
     attributes_whitelist = ["address", "pickup", "delivery", "skip_the_dishes", "uber_eats", 
