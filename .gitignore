@@ -32,6 +32,6 @@ yarn-debug.log*
 
 # Database
 config/database.yml
-*.dump
+latest.dump
 
 *.DS_Store
